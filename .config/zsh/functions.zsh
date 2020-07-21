@@ -12,8 +12,8 @@ then
     export PATH=$PATH:/opt/shell-color-scripts
 fi
 
-# After 100 seconds, run screen saver (either pipes or cmatrix)
-TMOUT=100
+# After 220 seconds, run screen saver (either pipes or cmatrix)
+TMOUT=220
 
 PIPES() {
     x=$(shuf -n 1 -e 0 ${4-8})
