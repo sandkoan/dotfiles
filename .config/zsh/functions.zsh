@@ -31,8 +31,8 @@ MATRIX() {
 }
 
 TRAPALRM() {
-    n=$(shuf -n 1 -e 0 1)
-    if [ $n -eq 0 ]
+    n=$(shuf -n 1 -e 1 2 3 4 5 6 7 8 9 10)
+    if [ $n -lt 7 ]
     then
         PIPES
     else
