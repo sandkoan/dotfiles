@@ -1,0 +1,29 @@
+# Colors (Cauldron)
+# By Govind Gnanakumar
+colors:
+  # Default colors
+  primary:
+    background: '#132333'
+    foreground: '#69e6b1'
+
+  # Normal colors
+  normal:
+    black:   '#8389a3'
+    red:     '#a54242'
+    green:   '#937fd4'
+    yellow:  '#acede5'
+    blue:    '#14609f'
+    magenta: '#762091'
+    cyan:    '#dcdfe7'
+    white:   '#33657e'
+
+  # Bright colors
+  bright:
+    black:   '#5574a5'
+    red:     '#ff7272'
+    green:   '#a367d6'
+    yellow:  '#f5f378'
+    blue:    '#0090df'
+    magenta: '#d083e7'
+    cyan:    '#5b83b5'
+    white:   '#a1e1ed'

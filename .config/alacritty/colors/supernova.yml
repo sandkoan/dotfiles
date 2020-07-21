@@ -1,0 +1,47 @@
+# Colors (Supernova)
+# Kind of a brighter version of nord
+# By Govind Gnanakumar
+colors:
+  # Default colors
+  primary:
+    background: '#313642'
+    foreground: '#C5D4DD'
+  
+  # If custom_cursor_colors is true
+  # cursor:
+  #  text: '#000000'
+  #  cursor: '#ffffff'
+
+  # Normal colors
+  normal:
+    black:   '#333333'
+    red:     '#f2777a'
+    green:   '#99cc99'
+    yellow:  '#ffcc66'
+    blue:    '#6699cc'
+    magenta: '#c97ed6'
+    cyan:    '#66cccc'
+    white:   '#dddddd'
+
+  
+  # Bright colors
+  bright:
+    black:   '#5c6a84'
+    red:     '#cd3746'
+    green:   '#a4d579'
+    yellow:  '#ffc75a'
+    blue:    '#69b1f9'
+    magenta: '#cf47da'
+    cyan:    '#57cfcd'
+    white:   '#bfd7ff'
+
+  # Dim colors (Optional)
+  dim:
+    black:   '#3b4252'
+    red:     '#bf616a'
+    green:   '#a7ba97'
+    yellow:  '#ebcb8b'
+    blue:    '#81a1c1'
+    magenta: '#cc99cc'
+    cyan:    '#88c0d0'
+    white:   '#e5e9f0'

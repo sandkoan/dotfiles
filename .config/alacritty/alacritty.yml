@@ -1,0 +1,147 @@
+# Colors (Zenburn)
+colors:
+  # Default colors
+  primary:
+    background: '#3d3d3d'
+    foreground: '#dcdccc'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  # cursor:
+  #  text: '#000000'
+  #  cursor: '#ffffff'
+
+  # Normal colors
+  normal:
+    black:   '#505050'
+    red:     '#d7a5a4'
+    green:   '#91ad91'
+    yellow:  '#e8d7b9'
+    blue:    '#c6eaff'
+    magenta: '#ba90bd'
+    cyan:    '#9ad6d9'
+    white:   '#f3f1d9'
+
+  # Bright colors
+  bright:
+    black:   '#7f7f7f'
+    red:     '#e4b3b2'
+    green:   '#d4e894'
+    yellow:  '#eff0a5'
+    blue:    '#6996bf'
+    magenta: '#dcbecd'
+    cyan:    '#9ad6d9'
+    white:   '#f8f5ed'
+
+  # Dim colors (Optional)
+  dim:
+    black:   '#333333'
+    red:     '#f2777a'
+    green:   '#99cc99'
+    yellow:  '#ffcc66'
+    blue:    '#6699cc'
+    magenta: '#cc99cc'
+    cyan:    '#66cccc'
+    white:   '#dddddd'
+
+    background_opacity: 0.3
+
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: true
+
+font:
+  normal:
+    family: "MesloLGS NF"
+    style: Regular
+  bold:
+    family: "MesloLGS NF"
+    style: Bold
+  italic:
+    family: "MesloLGS NF"
+    style: Italic
+  bold_italic:
+    family: "MesloLGS NF"
+    style: Bold Italic
+
+  # Point size
+  size: 14.0
+
+  offset:
+    x: 0
+    y: 0
+
+# window:
+  # padding:
+    # x: 2
+    # y: 2
+  # dynamic_padding: true
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 100000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 10
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+
+# Visual Bell
+#
+# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
+# rung, the terminal background will be set to white and transition back to the
+# default background color. You can control the rate of this transition by
+# setting the `duration` property (represented in milliseconds). You can also
+# configure the transition function by setting the `animation` property.
+#
+# Possible values for `animation`
+# `Ease`
+# `EaseOut`
+# `EaseOutSine`
+# `EaseOutQuad`
+# `EaseOutCubic`
+# `EaseOutQuart`
+# `EaseOutQuint`
+# `EaseOutExpo`
+# `EaseOutCirc`
+# `Linear`
+#
+# To completely disable the visual bell, set its duration to 0.
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+
+  # When set to `true`, selected text will be copied to both the primary and
+  # the selection clipboard. Otherwise, it will only be copied to the selection
+  # clipboard.
+  save_to_clipboard: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+hide_cursor_when_typing: true
+
+key_bindings:
+  # - { key: N, mods: Control, action: SpawnNewInstance }
+  # - { key: W, mods: Control, action: Quit }  
+  - { key: S, mods: Control, action: ToggleFullscreen }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Add, mods: Control, action: IncreaseFontSize }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }

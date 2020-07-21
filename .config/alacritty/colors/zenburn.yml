@@ -1,0 +1,44 @@
+# Colors (Zenburn)
+colors:
+  # Default colors
+  primary:
+    background: '#3d3d3d'
+    foreground: '#dcdccc'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  # cursor:
+  #  text: '#000000'
+  #  cursor: '#ffffff'
+
+  # Normal colors
+  normal:
+    black:   '#505050'
+    red:     '#d7a5a4'
+    green:   '#91ad91'
+    yellow:  '#e8d7b9'
+    blue:    '#c6eaff'
+    magenta: '#ba90bd'
+    cyan:    '#9ad6d9'
+    white:   '#f3f1d9'
+
+  # Bright colors
+  bright:
+    black:   '#7f7f7f'
+    red:     '#e4b3b2'
+    green:   '#d4e894'
+    yellow:  '#eff0a5'
+    blue:    '#6996bf'
+    magenta: '#dcbecd'
+    cyan:    '#9ad6d9'
+    white:   '#f8f5ed'
+
+  # Dim colors (Optional)
+  dim:
+    black:   '#333333'
+    red:     '#f2777a'
+    green:   '#99cc99'
+    yellow:  '#ffcc66'
+    blue:    '#6699cc'
+    magenta: '#cc99cc'
+    cyan:    '#66cccc'
+    white:   '#dddddd'
