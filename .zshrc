@@ -18,19 +18,19 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 if [ -d "$HOME/bin" ]
 then
-    export PATH=$PATH:$HOME/bin
+    PATH=$PATH:$HOME/bin
 fi
 
-if [ -d "/opt/shell-color-scripts" ]
-then
-    export PATH=$PATH:/opt/shell-color-scripts
+if [ -d ~/bin/shell-color-scripts ]
+then 
+    PATH=$PATH:~/bin/shell-color-scripts:~/bin/shell-color-scripts/colorscripts
 fi
 
-startcolors (){
+startcolors() {
     r=$(shuf -n 1 -e 0 1 2 3 4 5)
     if [ $r -lt 3 ]
     then
-        colorscript.sh random
+        colorscript random
     else 
         fortune | cowsay | lolcat -t
     fi
