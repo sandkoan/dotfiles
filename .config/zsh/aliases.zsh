@@ -22,13 +22,12 @@ alias vim='nvim'
 
 # lsd aliases
 alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
 
 # TODO if you run clear, every 10th time run asciiquarium or sl steam locomotive
 alias cls='clear'
-
 
 alias config='/usr/bin/git --git-dir=/home/govindg/.cfg/ --work-tree=/home/govindg'
