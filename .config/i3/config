@@ -134,7 +134,7 @@ bindsym $mod+a focus parent
 for_window [class=".*"] border pixel 4
 
 # GAP VARIABLES
-set $inner 15 
+set $inner 10 
 set $outer 10
 
 # SET GAPS

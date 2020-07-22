@@ -28,7 +28,7 @@ fi
 
 startcolors() {
     r=$(shuf -n 1 -e 0 1 2 3 4 5)
-    if [ $r -lt 3 ]
+    if [ $r -lt 4 ]
     then
         colorscript random
     else 
