@@ -70,10 +70,10 @@ font:
     x: 0
     y: 0
 
-# window:
-  # padding:
-    # x: 2
-    # y: 2
+window:
+  padding:
+    x: 4
+    y: 1
   # dynamic_padding: true
 
 scrolling:
