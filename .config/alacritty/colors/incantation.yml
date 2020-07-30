@@ -1,29 +1,36 @@
-# Colors (Sunset Pink)
+# Colors (Incantation)
 # By Govind Gnanakumar
 colors:
-  # Default colors
   primary:
-    background: '#0c1620'
-    foreground: '#d9e6f2'
+    background: '#1d1f2a'
+    foreground: '#9ea6d7'
 
-  # Normal colors
   normal:
-    black:   '#5a5a5a'
-    red:     '#f4dbd5'
-    green:   '#d5f4db'
-    yellow:  '#edf4d5'
-    blue:    '#dbd5f4'
-    magenta: '#f4d5ed'
-    cyan:    '#d5edf4'
-    white:   '#ffffff'
+    black: '#484c64'
+    red: '#f17178'
+    green: '#4cc86b'
+    yellow: '#e4ce7c'
+    blue: '#667dc2'
+    magenta: '#a074dc'
+    cyan: '#4098c4'
+    white: '#9ea6d7'
 
-  # Bright colors
   bright:
-    black:   '#373737'
-    red:     '#dd9581'
-    green:   '#81dd95'
-    yellow:  '#c9dd81'
-    blue:    '#9581dd'
-    magenta: '#dd81c9'
-    cyan:    '#81c9dd'
-    white:   '#d1d1d1'
+    black: '#5d6381'
+    red: '#E58091'
+    green: '#61C686'
+    yellow: '#DACB94'
+    blue: '#758ACC'
+    magenta: '#A483E1'
+    cyan: '#579FCE'
+    white: '#b3bdf4'
+
+  dim:
+    black: '#323647'
+    red: '#C76168'
+    green: '#43A65E'
+    yellow: '#BCAB6C'
+    blue: '#576AA4'
+    magenta: '#8663B8'
+    cyan: '#3980A5'
+    white: '#8890ba'

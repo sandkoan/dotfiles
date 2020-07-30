@@ -1,34 +1,33 @@
-# Colors (Sunset Pink)
+# Colors (Succuba)
+# Modified Dracula Theme
 # By Govind Gnanakumar
 colors:
   # Default colors
   primary:
-    background: '#0c1620'
-    foreground: '#d9e6f2'
+    background: '#282a36'
+    foreground: '#bbc5ff'
 
   # Normal colors
   normal:
-    black:   '#5a5a5a'
-    red:     '#f4dbd5'
-    green:   '#d5f4db'
-    yellow:  '#edf4d5'
-    blue:    '#dbd5f4'
-    magenta: '#f4d5ed'
-    cyan:    '#d5edf4'
-    white:   '#ffffff'
+    black:   '#101010'
+    red:     '#f07178'
+    green:   '#c3e88d'
+    yellow:  '#fbc663'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#89ddff'
+    white:   '#d0d0d0'
 
   # Bright colors
   bright:
-    black:   '#373737'
-    red:     '#dd9581'
-    green:   '#81dd95'
-    yellow:  '#c9dd81'
-    blue:    '#9581dd'
-    magenta: '#dd81c9'
-    cyan:    '#81c9dd'
-    white:   '#d1d1d1'
-
-    background_opacity: 0.3
+    black:   '#434758'
+    red:     '#ff8b92'
+    green:   '#ddffa7'
+    yellow:  '#ffe585'
+    blue:    '#9cc4ff'
+    magenta: '#e1acff'
+    cyan:    '#a3f7ff'
+    white:   '#ffffff'
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
@@ -57,18 +56,16 @@ font:
 
 window:
   padding:
-    x: 4
-    y: 1
+    x: 6
+    y: 6
   # dynamic_padding: true
+  # decorations: none
 
 scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
   history: 100000
-
-  # Number of lines the viewport will move for every line scrolled when
-  # scrollback is enabled (history > 0).
   multiplier: 10
+
+background_opacity: .9
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -123,6 +120,7 @@ key_bindings:
   - { key: Add, mods: Control, action: IncreaseFontSize }
   - { key: Subtract, mods: Control, action: DecreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }

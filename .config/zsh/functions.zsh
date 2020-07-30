@@ -6,12 +6,6 @@ function countdown() {
     done
 }
 
-
-if [ -d "/opt/shell-color-scripts" ]
-then
-    export PATH=$PATH:/opt/shell-color-scripts
-fi
-
 # After 220 seconds, run screen saver (either pipes or cmatrix)
 TMOUT=220
 
@@ -39,7 +33,3 @@ TRAPALRM() {
         MATRIX
     fi
 }
-
-# Edit line in vim with ctrl-e:
-# autoload edit-command-line; zle -N edit-command-line
-# bindkey '^e' edit-command-line

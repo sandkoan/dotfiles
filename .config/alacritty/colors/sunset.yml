@@ -1,0 +1,29 @@
+# Colors (Sunset Pink)
+# By Govind Gnanakumar
+colors:
+  # Default colors
+  primary:
+    background: '#0c1620'
+    foreground: '#d9e6f2'
+
+  # Normal colors
+  normal:
+    black:   '#5a5a5a'
+    red:     '#f4dbd5'
+    green:   '#d5f4db'
+    yellow:  '#edf4d5'
+    blue:    '#dbd5f4'
+    magenta: '#f4d5ed'
+    cyan:    '#d5edf4'
+    white:   '#ffffff'
+
+  # Bright colors
+  bright:
+    black:   '#373737'
+    red:     '#dd9581'
+    green:   '#81dd95'
+    yellow:  '#c9dd81'
+    blue:    '#9581dd'
+    magenta: '#dd81c9'
+    cyan:    '#81c9dd'
+    white:   '#d1d1d1'
