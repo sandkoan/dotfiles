@@ -1,0 +1,10 @@
+
+xmonad.hs:247:24: error:
+    Unexpected do block in function application:
+        do spawnOnce "nitrogen --restore &"
+           spawnOnce "picom &"
+    You could write it with parentheses
+    Or perhaps you meant to enable BlockArguments?
+    |
+247 | myStartupHook = return do
+    |                        ^^...
