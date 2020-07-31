@@ -32,12 +32,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # background
-exec --no-startup-id feh --bg-fill ~/pacwall.png
-# exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/milky-way-stars.jpg
+# exec --no-startup-id feh --bg-fill ~/pacwall.png
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/milky-way-stars.jpg
 # exec --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/*
 
 # autotiling
-exec_always --no-startup-id autotiling
+# exec_always --no-startup-id autotiling
 
 # start rofi
 bindsym $mod+d exec rofi -show run -config ~/.config/rofi/config

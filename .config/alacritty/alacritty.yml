@@ -5,7 +5,7 @@ colors:
   # Default colors
   primary:
     background: '#282a36'
-    foreground: '#bbc5ff'
+    foreground: '#ffffff'
 
   # Normal colors
   normal:
@@ -65,7 +65,7 @@ scrolling:
   history: 100000
   multiplier: 10
 
-background_opacity: .9
+background_opacity: 0.9
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true

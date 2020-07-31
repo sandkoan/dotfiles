@@ -2,6 +2,7 @@ alias rm='rm -I'
 alias vim='nvim'
 
 # ls aliases
+alias ls='ls --color=auto'
 alias l='ls -lahCF --color=auto'
 alias ll='ls -alhF --color=auto'
 alias la='ls -A --color=auto'
