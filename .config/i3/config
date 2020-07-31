@@ -33,14 +33,11 @@ exec --no-startup-id nm-applet
 
 # background
 # exec --no-startup-id feh --bg-fill ~/pacwall.png
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/milky-way-stars.jpg
-# exec --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+# exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/milky-way-stars.jpg
 
 # autotiling
 # exec_always --no-startup-id autotiling
 
-# start rofi
-bindsym $mod+d exec rofi -show run -config ~/.config/rofi/config
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -56,8 +53,8 @@ floating_modifier $mod
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
 
-exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080
-exec_always --no-startup-id xrandr --output VGA-2 --mode 1920x1080
+# exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080
+# exec_always --no-startup-id xrandr --output VGA-2 --mode 1920x1080
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -74,11 +71,9 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec dmenu_run
+# start rofi
+bindsym $mod+d exec rofi -show run -config ~/.config/rofi/config
 
 # change focus
 bindsym $mod+j focus left
