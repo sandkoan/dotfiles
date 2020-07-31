@@ -50,8 +50,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec konsole
+# bindsym $mod+Return exec alacritty
 
 # exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080
 # exec_always --no-startup-id xrandr --output VGA-2 --mode 1920x1080
