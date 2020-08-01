@@ -20,9 +20,6 @@ setopt auto_cd
 # push old dir onto stack
 setopt auto_pushd
 
-setopt complete_in_word
-setopt always_to_end
-
 # cd aliases
 alias ~="cd ~"
 alias ..='cd ..'

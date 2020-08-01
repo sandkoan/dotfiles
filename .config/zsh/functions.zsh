@@ -7,7 +7,7 @@ function countdown() {
 }
 
 # After 220 seconds, run screen saver (either pipes or cmatrix)
-TMOUT=220
+TMOUT=300
 
 PIPES() {
     x=$(shuf -n 1 -e 0 ${4-8})
@@ -33,3 +33,15 @@ TRAPALRM() {
         MATRIX
     fi
 }
+
+startcolors() {
+    r=$(shuf -n 1 -e 0 1 2 3 4 5)
+    if [ $r -lt 4 ]
+    then
+        colorscript random
+    else 
+        fortune | cowsay | lolcat -t
+    fi
+}
+
+startcolors
