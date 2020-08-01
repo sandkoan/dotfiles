@@ -11,8 +11,8 @@ alias la='ls -A --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}'
-alias hgrep='fc -El 0 | grep'
+alias sgrep='grep -R -n -H -C 5 --color=auto --exclude-dir={.git,.svn,CVS}'
+alias hgrep='fc -El 0 | grep --color=auto'
 
 # autocd by typing 
 setopt auto_cd
