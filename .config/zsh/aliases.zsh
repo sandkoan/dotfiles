@@ -41,12 +41,16 @@ alias 8='cd -8'
 # TODO if you run clear, every 10th time run asciiquarium or sl steam locomotive
 alias cls='clear'
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # git aliases
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfga='config add'
+alias cfgc='config commit -m'
+alias cfgp='config push'
+
 alias g='git'
 
 alias ga='git add'
 alias gaa='git add --all'
-alias gc='git commit -v'
-alias gcm='git commit -mv'
+alias gau='git add -u'
+alias gc='git commit -m'
+alias gp='git push'
