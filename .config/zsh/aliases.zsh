@@ -14,12 +14,6 @@ alias fgrep='fgrep --colour=auto'
 alias sgrep='grep -R -n -H -C 5 --color=auto --exclude-dir={.git,.svn,CVS}'
 alias hgrep='fc -El 0 | grep --color=auto'
 
-# autocd by typing 
-setopt auto_cd
-
-# push old dir onto stack
-setopt auto_pushd
-
 # cd aliases
 alias ~="cd ~"
 alias ..='cd ..'
@@ -40,6 +34,7 @@ alias cls='clear'
 
 # git aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfgs='config status'
 alias cfga='config add'
 alias cfgc='config commit -m'
 alias cfgp='config push'

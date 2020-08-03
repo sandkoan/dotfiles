@@ -21,5 +21,9 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 if [ -d ~/bin/shell-color-scripts ]; then 
-    PATH=$PATH:~/bin/shell-color-scripts:~/bin/shell-color-scripts/colorscripts
+    PATH=$PATH:$HOME/bin/shell-color-scripts:$HOME/bin/shell-color-scripts/colorscripts
+fi
+
+if [ -d "$HOME/.emacs.d/bin/" ]; then
+    PATH=$PATH:~/.emacs.d/bin
 fi

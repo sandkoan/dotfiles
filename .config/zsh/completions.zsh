@@ -2,6 +2,25 @@
 # Basic auto/tab complete:
 zmodload -i zsh/complist
 
+# autocd by typing directory name
+setopt auto_cd
+
+# push old dir onto stack
+setopt auto_pushd
+
+# bookmark directories, kind of like z
+setopt cdablevars
+code=~/Code
+scripts=~/scripts
+zshrc=~/.zshrc
+zsh=~/.config/zsh
+doom=~/.config/doom
+i3=~/.config/i3
+kitty=~/.config/kitty
+qtile=~/.config/qtile
+ala=~/.config/alacritty
+xmonad=~/.xmonad/
+
 WORDCHARS=''
 
 unsetopt menu_complete   # do not autoselect the first completion entry
@@ -29,7 +48,7 @@ zstyle ':completion:*' prompt 'Δ'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/ggnana/.config/zsh/completions.zsh'
+zstyle :compinstall filename '~/.config/zsh/completions.zsh'
 
 autoload -Uz compinit && compinit
 # End of lines added by compinstall

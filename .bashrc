@@ -45,6 +45,11 @@ esac
 
 export PROMPT_DIRTRIM=2
 
+# for git status
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+
 use_color=true
 
 # Set colorful PS1 only on colorful terminals.
@@ -59,25 +64,26 @@ match_lhs=""
 [[ -z ${match_lhs}    ]] \
     && type -P dircolors >/dev/null \
     && match_lhs=$(dircolors --print-database)
-    [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
+    [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true;
 
-
-function ahead_behind {
-    curr_branch=$(git rev-parse --abbrev-ref HEAD);
-    curr_remote=$(git config branch.$curr_branch.remote);
-    curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
-    num_commits=$(git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch | tr -s '\t' '|' | tr -d '[:space:]' | sed -r 's/^\s*(\S+(\s+\S+)*)\s*$/\1/')
-    echo "$num_commits"    
-}
-parse_git_branch() {
-    git_info=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' | tr -d '()');
-    symbol=' ';
-    if [ -n "$git_info" ]
-    then 
-        echo $symbol$git_info && ahead_behind | sed -r 's/^\s*(\S+(\s+\S+)*)\s*$/\1/';
+get_git_branch() {
+    git_branch=$(__git_ps1 " (%s)")
+    symbol=' '
+    if [ -n "$git_branch" ]; then 
+        echo "$symbol$git_branch"
+    else 
+        echo ""
     fi
 }
 
+change_color_exit_status() {
+    if [ "$?" == "0" ]
+    then
+        echo -e '\e[0;32m$ '
+    else
+        echo -e '\e[0;31m$ '
+    fi
+}
 
 if ${use_color} ; then
     # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
@@ -92,8 +98,8 @@ if ${use_color} ; then
     if [[ ${EUID} == 0 ]] ; then
         PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
     else
-        # PS1='\[\e[0;32m\]\w\e[0;36\]\$(parse_git_branch) [\e[0;36m\]$ '
-        PS1="\[\e[0;32m\]\w \[\e[38;5;80m\]\$(parse_git_branch) \[\e[38;5;39m\]$ \[\e[38;5;15m\]"
+        # PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(get_git_branch)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\]▶\[\033[0m\033[0;32m\] \$\[\033[0m\] '
+        PS1='\[\033[0;36m\]\w\[\033[0;32m\]$(get_git_branch)\[\033[0m\033[0;32m\] \$\[\033[0m\] '
     fi
 
     alias ls='ls --color=auto'
@@ -158,7 +164,7 @@ ex ()
 # My config
 
 # vi mode
-set -o vi
+# set -o vi
 
 # Path
 if [ -d "$HOME/bin" ]; then
@@ -295,9 +301,6 @@ set -o noclobber
 # Update window size after every command
 shopt -s checkwinsize
 
-# Automatically trim long paths in the prompt (requires Bash 4.x)
-PROMPT_DIRTRIM=2
-
 # Enable history expansion with space
 # E.g. typing !!<space> will replace the !! with your last command
 bind Space:magic-space
@@ -339,4 +342,8 @@ CDPATH="."
 # This allows you to bookmark your favorite places across the file system
 # Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
 shopt -s cdable_vars
-alias config='/usr/bin/git --git-dir=/home/ggnana/.cfg/ --work-tree=/home/ggnana'
+
+
+# bash powerline prompt
+# source ~/.bash-powerline.sh
+

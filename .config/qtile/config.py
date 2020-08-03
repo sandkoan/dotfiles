@@ -56,11 +56,11 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "c", lazy.window.kill()),
+    Key([mod, "shift"], "c", lazy.window.kill()),
 
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "q", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd()),
+    Key([mod, "shift"], "Return", lazy.spawncmd()),
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
@@ -94,8 +94,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
+    font='MesloLGS NF',
+    fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
