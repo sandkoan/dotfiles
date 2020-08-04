@@ -60,10 +60,10 @@ keys = [
 
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "q", lazy.shutdown()),
-    Key([mod, "shift"], "Return", lazy.spawncmd()),
+    Key([mod], "d", lazy.spawncmd()),
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+groups = [Group(i) for i in range(1, 10)]
 
 for i in groups:
     keys.extend([
