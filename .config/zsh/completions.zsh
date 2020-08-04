@@ -12,14 +12,14 @@ setopt auto_pushd
 setopt cdablevars
 code=~/Code
 scripts=~/scripts
-zshrc=~/.zshrc
-zsh=~/.config/zsh
+zrc=~/.zshrc
+zdir=~/.config/zsh
 doom=~/.config/doom
-i3=~/.config/i3
-kitty=~/.config/kitty
-qtile=~/.config/qtile
+i3dir=~/.config/i3
+kit=~/.config/kitty
+qti=~/.config/qtile
 ala=~/.config/alacritty
-xmonad=~/.xmonad/
+xmo=~/.xmonad/
 
 WORDCHARS=''
 

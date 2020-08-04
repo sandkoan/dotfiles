@@ -9,6 +9,8 @@ else
     export EDITOR='nvim'
 fi
 
+export VISUAL="emacsclient -c -a emacs"   # $VISUAL use Emacs in GUI mode
+
 # Kitty blur only works on KDE {{{
 if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|kitty$' ]]; then
         for wid in $(xdotool search --pid $PPID); do

@@ -71,10 +71,10 @@ for i in groups:
         Key([mod], i.name, lazy.group[i.name].toscreen()),
 
         # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
+        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
         # Or, use below if you prefer not to switch to that group.
         # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
 layouts = [
@@ -82,7 +82,9 @@ layouts = [
     layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     layout.Bsp(),
-    layout.Columns(),
+    layout.Columns(
+           margin = 6
+           ),
     layout.Matrix(),
     layout.MonadTall(),
     layout.MonadWide(),
@@ -108,9 +110,8 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.TextBox("default config", name="default"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='%m/%d %a %I:%M %p'),
                 widget.QuickExit(),
             ],
             24,

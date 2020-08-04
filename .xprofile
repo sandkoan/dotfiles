@@ -16,6 +16,3 @@ nitrogen --restore &
 # nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/wallpapers/backgrounds
 
 picom -b
-
-export EDITOR="nvim"
-export TERMINAL="kitty"
