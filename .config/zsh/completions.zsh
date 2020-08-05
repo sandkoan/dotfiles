@@ -2,12 +2,6 @@
 # Basic auto/tab complete:
 zmodload -i zsh/complist
 
-# autocd by typing directory name
-setopt auto_cd
-
-# push old dir onto stack
-setopt auto_pushd
-
 # bookmark directories, kind of like z
 setopt cdablevars
 code=~/Code
