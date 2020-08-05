@@ -14,6 +14,13 @@ alias fgrep='fgrep --colour=auto'
 alias sgrep='grep -R -n -H -C 5 --color=auto --exclude-dir={.git,.svn,CVS}'
 alias hgrep='fc -El 0 | grep --color=auto'
 
+# autocd by typing directory name
+setopt auto_cd
+
+# push old dir onto stack
+setopt auto_pushd
+setopt pushdminus
+
 # cd aliases
 alias ~="cd ~"
 alias ..='cd ..'
