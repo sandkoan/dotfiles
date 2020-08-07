@@ -1,8 +1,12 @@
 # aliases
 
 alias vim='nvim'
+# emacs in terminal, decent functionality, beautiful with background
 alias em="/usr/bin/emacs -nw"
+# terminal is tied up
 alias emacs="emacsclient -c -a ''"
+# the terminal is not longer tied up with emacs
+alias nemacs='emacsclient -nc'
 
 # ls aliases
 alias ls='ls --color=auto'
