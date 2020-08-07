@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Succuba
-Font=MesloLGS NF,14,-1,5,50,0,0,0,0,0
+Font=JetBrainsMono Nerd Font,14,-1,5,57,1,0,0,0,0,Medium Italic
 
 [General]
 Name=Govind

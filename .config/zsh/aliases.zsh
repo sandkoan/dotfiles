@@ -1,5 +1,8 @@
-alias rm='rm -I'
+# aliases
+
 alias vim='nvim'
+alias em="/usr/bin/emacs -nw"
+alias emacs="emacsclient -c -a ''"
 
 # ls aliases
 alias ls='ls --color=auto'
@@ -21,7 +24,6 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushdminus
 
-# cd aliases
 alias ~="cd ~"
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -39,6 +41,11 @@ alias 8='cd -8'
 # TODO if you run clear, every 10th time run asciiquarium or sl steam locomotive
 alias cls='clear'
 
+alias rm='rm -I'
+alias cp="cp -i"                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+
 # git aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfgs='config status'
@@ -53,3 +60,4 @@ alias gaa='git add --all'
 alias gau='git add -u'
 alias gc='git commit -m'
 alias gp='git push'
+alias gitu='git add . && git commit && git push'

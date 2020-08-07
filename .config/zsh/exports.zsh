@@ -1,6 +1,6 @@
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -10,6 +10,7 @@ else
 fi
 
 export VISUAL="emacsclient -c -a emacs"   # $VISUAL use Emacs in GUI mode
+export ALTERNATE_EDITOR=""
 
 # Kitty blur only works on KDE {{{
 if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|kitty$' ]]; then
@@ -29,3 +30,17 @@ fi
 if [ -d "$HOME/.emacs.d/bin/" ]; then
     PATH=$PATH:~/.emacs.d/bin
 fi
+
+if [ -d "$HOME/.cargo/bin" ]; then
+    PATH=$PATH:$HOME/.cargo/bin
+fi
+
+# color man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-r

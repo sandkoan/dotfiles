@@ -63,40 +63,40 @@ keys = [
     Key([mod], "d", lazy.spawncmd()),
 ]
 
-groups = [Group(i) for i in range(1, 10)]
+group_names =  ["Web", "Term", "Mus", "Editor", "Misc"]
+groups = [Group(name) for name in group_names]
 
-for i in groups:
-    keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen()),
+for i, name in enumerate(group_names):
+    keys += [
+        Key([mod], str(i + 1), lazy.group[name].toscreen()), 
+        Key([mod, 'shift'], str(i + 1), lazy.window.togroup(name))
+    ]
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-    ])
 
 layouts = [
     layout.Max(),
-    layout.Stack(num_stacks=2),
-    # Try more layouts by unleashing below layouts.
-    layout.Bsp(),
+    layout.Stack(
+        num_stacks=2,
+        margin = 6
+    ),
+    layout.Bsp(
+        margin = 6
+    ),
     layout.Columns(
-           margin = 6
-           ),
+        margin = 6
+    ),
     layout.Matrix(),
     layout.MonadTall(),
     layout.MonadWide(),
-    layout.RatioTile(),
+    #  layout.RatioTile(),
     layout.Tile(),
     layout.TreeTab(),
-    layout.VerticalTile(),
+    #  layout.VerticalTile(),
     layout.Zoomy(),
 ]
 
 widget_defaults = dict(
-    font='MesloLGS NF',
+    font='JetBrainsMono Nerd Font',
     fontsize=14,
     padding=3,
 )
