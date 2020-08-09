@@ -86,8 +86,10 @@ layouts = [
         margin = 6
     ),
     layout.Matrix(),
-    layout.MonadTall(),
-    layout.MonadWide(),
+    layout.MonadTall(
+        margin = 6
+    ),
+    #  layout.MonadWide(),
     #  layout.RatioTile(),
     layout.Tile(),
     layout.TreeTab(),
@@ -163,3 +165,4 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+#  wmname = "qtile"
