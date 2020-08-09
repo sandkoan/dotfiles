@@ -37,7 +37,7 @@ exit_status_root(){
     echo '%(?.%{$fg[green]%}# %{$reset_color%}.%{$fg[red]%}# %{$reset_color%})'
 }
 
-PROMPT="%(!.%{$fg[red]%}%1~%{$reset_color%} "$(exit_status_root)" .%F{32}%1~%f%{$reset_color%} "$(exit_status)""
+PROMPT="%(!.%{$fg[red]%}%1~%{$reset_color%} "$(exit_status_root)" .%F{32}%(3~|%-1~/.../%1~|%~)%f%{$reset_color%} "$(exit_status)""
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"                              # plus/minus     - clean repo
