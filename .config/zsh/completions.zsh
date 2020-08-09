@@ -31,7 +31,6 @@ setopt always_to_end
 
 # should this be in keybindings?
 bindkey -M menuselect '^o' accept-and-infer-next-history
-zstyle ':completion:*:*:*:*:*' menu select
 
 # The following lines were added by compinstall
 
@@ -44,7 +43,7 @@ zstyle ':completion:*' rehash true                              # automatically 
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' max-errors 5 numeric
-zstyle ':completion:*' menu select=long
+zstyle ':completion:*' menu select
 zstyle ':completion:*' prompt 'Δ'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl true
@@ -57,8 +56,8 @@ zstyle :compinstall filename '~/.config/zsh/completions.zsh'
 
 # Sets up support for colors and a calculator
 autoload -Uz compinit zed zmv allopt colors zcalc
-colors
 compinit
+colors
 # End of lines added by compinstall
 
 autoload -U +X bashcompinit && bashcompinit

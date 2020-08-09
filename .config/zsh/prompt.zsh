@@ -1,18 +1,43 @@
 # enable substitution for prompt
 setopt prompt_subst
 
+vim_ins_mode="❯"
+vim_cmd_mode="❮"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+    if [ $KEYMAP = vicmd ]
+    then
+        vim_mode=$vim_cmd_mode
+    else
+        vim_mode=$vim_ins_mode
+    fi
+    zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+    vim_mode=$vim_ins_mode
+}
+zle -N zle-line-finish
+
+# Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode indicator, while in fact you would be in INS mode
+# Fixed by catching SIGINT (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything else depends on it, we will not break it
+# Thanks Ron! (see comments)
+function TRAPINT() {
+    vim_mode=$vim_ins_mode
+    return $(( 128 + $1 ))
+} 
+
 exit_status() {
-    echo "%(?.%{$fg[green]%}$ %{$reset_color%}.%{$fg[red]%}$ %{$reset_color%})"
+    # 256 colors
+    echo '%(?.%F{76}${vim_mode}%f %{$reset_color%}.%F{196}${vim_mode}%f %{$reset_color%})'
 }
 exit_status_root(){
-    echo "%(?.%{$fg[green]%}# %{$reset_color%}.%{$fg[red]%}# %{$reset_color%})"
+    echo '%(?.%{$fg[green]%}# %{$reset_color%}.%{$fg[red]%}# %{$reset_color%})'
 }
 
-PROMPT="%(!.%{$fg[red]%}%1~%{$reset_color%} "$(exit_status_root)" .%{$fg[blue]%}%1~%{$reset_color%} "$(exit_status)""
-## Prompt on right side:
-#  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
-#  - shows exit status of previous command (if previous command finished with an error)
-#  - is invisible, if neither is the case
+PROMPT="%(!.%{$fg[red]%}%1~%{$reset_color%} "$(exit_status_root)" .%F{32}%1~%f%{$reset_color%} "$(exit_status)""
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"                              # plus/minus     - clean repo
@@ -66,20 +91,20 @@ git_prompt_string() {
   # If inside a Git repository, print its branch and state
   [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg_bold[blue]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
 
-  [ ! -n "$git_where" ] && echo "%{$fg[blue]%}%D{%H:%M:%S}"
+  [ ! -n "$git_where" ] && echo "%F{32}%D{%r}%f"
 
 }
 
 RPROMPT='$(git_prompt_string)'
-# ## Base16 Shell color themes.
-# #possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
-# #atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
-# #embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
-# #marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
-# #solarized, summerfruit, tomorrow, twilight
-# theme="solarized"
-# #Possible variants: dark and light
-# shade="dark"
-# BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
-# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+  # ## Base16 Shell color themes.
+  # #possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
+  # #atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
+  # #embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
+  # #marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
+  # #solarized, summerfruit, tomorrow, twilight
+  # theme="solarized"
+  # #Possible variants: dark and light
+  # shade="dark"
+  # BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
+  # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
