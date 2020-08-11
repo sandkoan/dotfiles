@@ -11,6 +11,7 @@ setopt prompt_subst
 vim_ins_mode="❯"
 vim_cmd_mode="❮"
 vim_mode=$vim_ins_mode
+echo -ne '\e[5 q'
 
 function zle-keymap-select {
     if [ $KEYMAP = vicmd ]
