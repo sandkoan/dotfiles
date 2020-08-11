@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # baraction.sh for spectrwm status bar
 
 ## DISK
