@@ -91,10 +91,10 @@ layouts = [
     ),
     #  layout.MonadWide(),
     #  layout.RatioTile(),
-    layout.Tile(),
+    #  layout.Tile(),
     layout.TreeTab(),
     #  layout.VerticalTile(),
-    layout.Zoomy(),
+    #  layout.Zoomy(),
 ]
 
 widget_defaults = dict(

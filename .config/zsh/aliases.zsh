@@ -8,16 +8,27 @@ alias emacs="emacsclient -c -a ''"
 # the terminal is not longer tied up with emacs
 alias nemacs='emacsclient -nc'
 
+alias inst='sudo pacman -S'
+alias rem='sudo pacman --remove'
+alias up='sudo pacman -Syu'
+
 cco() { cc -std=c99 -g -O2 -o $1 $1.c -Wall; }
 run() { cco $1 && ./$1 & fg; }
 # co() { g++ -std=c++17 -O2 -o $1 $1.cpp -Wall; }
 # run() { co $1 && ./$1 & fg; }
 
 # ls aliases
-alias ls='ls --color=auto'
-alias l='ls -lahCF --color=auto'
-alias ll='ls -alhF --color=auto'
-alias la='ls -A --color=auto'
+# alias ls='ls --color=auto'
+# alias l='ls -lahCF --color=auto'
+# alias ll='ls -alhF --color=auto'
+# alias la='ls -A --color=auto'
+
+# lsd aliases
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 # grep
 alias grep='grep --color=auto'

@@ -18,9 +18,9 @@ MATRIX() {
     y=$(shuf -n 1 -e 0 1)
     if [ $y -eq 0 ]
     then 
-        cmatrix -ms -C cyan
+        unimatrix -a -f -s 96 -c blue
     else 
-        cmatrix -s -C cyan
+        unimatrix -f -s 96
     fi
 }
 
