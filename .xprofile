@@ -15,7 +15,7 @@ xrandr --output VGA-2 --mode 1920x1080
 nitrogen --restore &
 
 # emacs daemon
-emacs --daemon &
+emacs --daemon
 
 # compositor
 picom -b

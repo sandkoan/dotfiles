@@ -12,7 +12,7 @@ alias inst='sudo pacman -S'
 alias rem='sudo pacman --remove'
 alias up='sudo pacman -Syu'
 
-cco() { cc -std=c99 -g -O2 -o $1 $1.c -Wall; }
+cco() { gcc -std=c99 -g -O2 -o $1 $1.c -Wall; }
 run() { cco $1 && ./$1 & fg; }
 # co() { g++ -std=c++17 -O2 -o $1 $1.cpp -Wall; }
 # run() { co $1 && ./$1 & fg; }

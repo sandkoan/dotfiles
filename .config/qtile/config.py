@@ -1,134 +1,204 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Screen, Group, ScratchPad, DropDown, EzKey as Key, EzClick as Click, EzDrag as Drag 
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget
 
 from typing import List  # noqa: F401
 
 mod = "mod4"
+my_term = "kitty"
 
 keys = [
-    # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
-
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up()),
-
-    # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
-
-    # Swap panes of split stack
-    Key([mod, "shift"], "space", lazy.layout.rotate()),
-
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("kitty")),
-
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod, "shift"], "c", lazy.window.kill()),
-
-    Key([mod, "shift"], "r", lazy.restart()),
-    Key([mod, "shift"], "q", lazy.shutdown()),
-    Key([mod], "d", lazy.spawncmd()),
+        Key("M-<Return>",
+            lazy.spawn(my_term),
+            desc='Launches My Terminal'
+            ),
+        Key("M-S-<Return>",
+            lazy.spawncmd(),
+            desc='Run Launcher'
+            ),
+        Key("M-<Tab>",
+            lazy.next_layout(),
+            desc='Toggle through layouts'
+            ),
+        Key("M-S-c",
+            lazy.window.kill(),
+            desc='Kill active window'
+            ),
+        Key("M-S-r",
+            lazy.restart(),
+            desc='Restart Qtile'
+            ),
+        Key("M-S-q",
+            lazy.shutdown(),
+            desc='Shutdown Qtile'
+            ),
+        Key("M-S-w",
+            lazy.to_screen(0),
+            desc='Keyboard focus to monitor 1'
+            ),
+        Key("M-e",
+            lazy.to_screen(1),
+            desc='Keyboard focus to monitor 2'
+            ),
+        Key("M-<period>",
+            lazy.next_screen(),
+            desc='Move focus to next monitor'
+            ),
+        Key("M-<comma>",
+            lazy.prev_screen(),
+            desc='Move focus to prev monitor'
+            ),
+        Key("M-C-k",
+            lazy.layout.section_up(),
+            desc='Move up a section in treetab'
+            ),
+        Key("M-C-j",
+            lazy.layout.section_down(),
+            desc='Move down a section in treetab'
+            ),
+        Key("M-k",
+            lazy.layout.down(),
+            desc='Move focus down in current stack pane'
+            ),
+        Key("M-j",
+                lazy.layout.up(),
+                desc='Move focus up in current stack pane'
+                ),
+        Key("M-S-k",
+                lazy.layout.shuffle_down(),
+                desc='Move windows down in current stack'
+                ),
+        Key("M-S-j",
+                lazy.layout.shuffle_up(),
+                desc='Move windows up in current stack'
+                ),
+        Key("M-h",
+                lazy.layout.grow(),
+                lazy.layout.increase_nmaster(),
+                desc='Expand window (MonadTall), increase number in master pane (Tile)'
+                ),
+        Key("M-l",
+                lazy.layout.shrink(),
+                lazy.layout.decrease_nmaster(),
+                desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
+                ),
+        Key("M-n",
+                lazy.layout.normalize(),
+                desc='normalize window size ratios'
+                ),
+        Key("M-m",
+                lazy.layout.maximize(),
+                desc='toggle window between minimum and maximum sizes'
+                ),
+        Key("M-S-f",
+                lazy.window.toggle_floating(),
+                desc='toggle floating'
+                ),
+        Key("M-S-m",
+                lazy.window.toggle_fullscreen(),
+                desc='toggle fullscreen'
+                ),
+         Key("M-S-<space>",
+                 lazy.layout.rotate(),
+                 lazy.layout.flip(),
+                 desc='Switch which side main pane occupies (XmonadTall)'
+                 ),
+         Key("M-<space>",
+                 lazy.layout.next(),
+                 desc='Switch window focus to other pane(s) of stack'
+                 ),
+         Key("M-C-<Return>",
+                 lazy.layout.toggle_split(),
+                 desc='Toggle between split and unsplit sides of stack'
+                 ),
+         Key("<F12>", lazy.group['scratchpad'].dropdown_toggle('term'), 
+            desc='Drop down terminal'
+            )
 ]
 
-group_names =  ["Web", "Term", "Mus", "Editor", "Misc"]
+group_names = ["Web", "Term", "Mus", "Editor", "Yt", "Misc"]
 groups = [Group(name) for name in group_names]
 
 for i, name in enumerate(group_names):
-    keys += [
-        Key([mod], str(i + 1), lazy.group[name].toscreen()), 
-        Key([mod, 'shift'], str(i + 1), lazy.window.togroup(name))
-    ]
+    keys += [Key("M-" + str(i + 1), lazy.group[name].toscreen(), desc="Go to next group"), 
+            Key("M-S-" + str(i + 1), lazy.window.togroup(name), desc="Move window to next group")]
 
+
+groups += [ScratchPad("scratchpad", [DropDown("term", my_term, opacity=0.9)])]
+
+layout_theme = {"border_width": 2,
+                "margin": 6,
+                "border_focus": "e1acff",
+                "border_normal": "1D2330"
+                }
 
 layouts = [
-    layout.Max(),
-    layout.Stack(
-        num_stacks=2,
-        margin = 6
-    ),
-    layout.Bsp(
-        margin = 6
-    ),
-    layout.Columns(
-        margin = 6
-    ),
-    layout.Matrix(),
-    layout.MonadTall(
-        margin = 6
-    ),
-    #  layout.MonadWide(),
-    #  layout.RatioTile(),
-    #  layout.Tile(),
-    layout.TreeTab(),
-    #  layout.VerticalTile(),
-    #  layout.Zoomy(),
+    #layout.MonadWide(**layout_theme),
+    layout.Bsp(**layout_theme),
+    layout.Stack(stacks=2, **layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.Max(**layout_theme),
+    layout.Tile(shift_windows=True, **layout_theme),
+    layout.Stack(num_stacks=2),
+    layout.TreeTab(
+         font = "JetBrainsMono Nerd Font",
+         fontsize = 10,
+         sections = ["FIRST", "SECOND"],
+         section_fontsize = 11,
+         bg_color = "141414",
+         active_bg = "90C435",
+         active_fg = "000000",
+         inactive_bg = "384323",
+         inactive_fg = "a0a0a0",
+         padding_y = 5,
+         section_top = 10,
+         panel_width = 320
+         ),
+    layout.Floating(**layout_theme)
 ]
 
-widget_defaults = dict(
-    font='JetBrainsMono Nerd Font',
-    fontsize=14,
-    padding=3,
-)
+widget_defaults = dict(font="JetBrainsMono Nerd Font", fontsize=14, padding=4,)
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Systray(),
-                widget.Clock(format='%m/%d %a %I:%M %p'),
-                widget.QuickExit(),
-            ],
-            24,
-        ),
-    ),
-]
+        Screen(
+            bottom=bar.Bar(
+                [
+                    widget.CurrentLayoutIcon(),
+                    widget.GroupBox(),
+                    widget.Prompt(),
+                    widget.WindowName(),
+                    widget.Systray(),
+                    widget.Clock(format="%m/%d %a %I:%M %p"),
+                    widget.QuickExit(),
+                    ],
+                24,
+                ),
+            ),
+        Screen(
+            bottom=bar.Bar(
+                [
+                    widget.CurrentLayoutIcon(),
+                    widget.GroupBox(),
+                    widget.Prompt(),
+                    widget.WindowName(),
+                    widget.Systray(),
+                    widget.Clock(format="%m/%d %a %I:%M %p"),
+                    widget.QuickExit(),
+                    ],
+                24,
+                ),
+            )
+        ]
 
-# Drag floating layouts.
+# Drag floating layouts
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
-]
+        Drag("M-1", lazy.window.set_position_floating(),
+            start=lazy.window.get_position()),
+        Drag("M-3", lazy.window.set_size_floating(),
+            start=lazy.window.get_size()),
+        Click("M-2", lazy.window.bring_to_front())
+        ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
@@ -136,23 +206,25 @@ main = None
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-])
+floating_layout = layout.Floating(
+        float_rules=[
+            # Run the utility of `xprop` to see the wm class and name of an X client.
+            {"wmclass": "confirm"},
+            {"wmclass": "dialog"},
+            {"wmclass": "download"},
+            {"wmclass": "error"},
+            {"wmclass": "file_progress"},
+            {"wmclass": "notification"},
+            {"wmclass": "splash"},
+            {"wmclass": "toolbar"},
+            {"wmclass": "confirmreset"},  # gitk
+            {"wmclass": "makebranch"},  # gitk
+            {"wmclass": "maketag"},  # gitk
+            {"wname": "branchdialog"},  # gitk
+            {"wname": "pinentry"},  # GPG key password entry
+            {"wmclass": "ssh-askpass"},  # ssh-askpass
+            ]
+        )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 

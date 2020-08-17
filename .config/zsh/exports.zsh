@@ -1,14 +1,10 @@
-# source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# # source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-# source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-
 # Use syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+export ZSHRC="~/.zshrc"
+export ZSH="~/.config/zsh"
 
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='nvim'

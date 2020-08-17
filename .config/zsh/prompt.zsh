@@ -1,8 +1,8 @@
 if [[ ! -a ~/.config/zsh/zsh-async ]]
 then
-    git clone https://github.com/mafredri/zsh-async.git ~/.config/zsh/zsh-async 2> /dev/null
+    git clone -b 'v1.5.2' https://github.com/mafredri/zsh-async.git ~/.config/zsh/zsh-async 2> /dev/null
 fi
-source ~/.config/zsh/zsh-async
+source ~/.config/zsh/zsh-async/async.zsh
 
 # enable substitution for prompt
 setopt prompt_subst
