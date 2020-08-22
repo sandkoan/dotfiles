@@ -1,0 +1,75 @@
+!  ____ _____ 
+! |  _ \_   _|  Derek Taylor (DistroTube)
+! | | | || |    http://www.youtube.com/c/DistroTube
+! | |_| || |    http://www.gitlab.com/dwt1/ 
+! |____/ |_|  	
+
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+XTerm*renderFont: true
+XTerm*faceName: xft:JetBrainsMono Nerd Font:size=17, \
+                xft:JoyPixels:size=12, \
+                xft:Monospace:style=Medium:size=12   
+XTerm*faceSize: 11
+XTerm*utf8: 2
+XTerm*locale: true
+
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> j: smaller-vt-font() \n\
+  Ctrl <Key> k: larger-vt-font()
+
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+
+! I like a LOT of scrollback...
+XTerm*savelines: 16384
+
+! double-click to select whole URLs :D
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+XTerm*foreground: #bbc5ff
+XTerm*background: #282a36
+XTerm*cursorColor: #bbc5ff
+
+! black (original): #292d3e
+
+! black
+*.color0:       #101010  
+*.color8:       #434758
+
+! red
+*.color1:       #f07178
+*.color9:       #ff8b92
+
+! green
+*.color2:       #c3e88d
+*.color10:      #ddffa7
+
+! yellow
+*.color3:       #ffcb6b
+*.color11:      #ffe585
+
+! blue
+*.color4:       #82aaff
+*.color12:      #9cc4ff
+
+! magenta
+*.color5:       #c792ea
+*.color13:      #e1acff
+
+! cyan
+*.color6:       #89ddff
+*.color14:      #a3f7ff
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #ffffff
+
