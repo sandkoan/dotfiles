@@ -13,7 +13,8 @@ from typing import List  # noqa: F401
 ######### Keys #########
 my_term = "kitty"
 my_font =  "Mononoki Nerd Font"
-my_editor = "emacsclient -c -a emacs"
+#  my_font =  "JetBrainsMono Nerd Font"
+my_editor = "emacs"
 my_browser = "google-chrome-stable"
 my_launcher = "dmenu_run -fn 'Mononoki Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'"
 
@@ -197,7 +198,7 @@ colors = [["#292d3e", "#292d3e"], # panel background
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
-    font="Ubuntu Mono",
+    font=my_font,
     fontsize = 12,
     padding = 2,
     background=colors[2]
@@ -216,8 +217,8 @@ def init_widgets_list():
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(my_launcher)}
                        ),
               widget.GroupBox(
-                       font = my_font + " Bold",
-                       fontsize = 9,
+                       font = my_font,
+                       fontsize = 11,
                        margin_y = 3,
                        margin_x = 0,
                        padding_y = 5,

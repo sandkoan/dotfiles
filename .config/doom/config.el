@@ -21,7 +21,9 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17))
+
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15)
+       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -39,6 +41,42 @@
 ;; This is the default tab-width
 (setq default-tab-width 4)
 
+;; Set urls to open in a specific browser.
+(setq browse-url-browser-function 'eww-browse-url)
+
+;; Force splits to open on the right
+(defun prefer-horizontal-split ()
+  (set-variable 'split-height-threshold nil t)
+  (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
+(add-hook 'markdown-mode-hook 'prefer-horizontal-split)
+
+;; Remove quit message
+(setq confirm-kill-emacs nil)
+
+;; Python anaconda-mode autocompletion
+(require 'company)
+(setq company-idle-delay 0.2
+      company-minimum-prefix-length 3)
+
+;; Increment number under cursor with C-a, like in vim
+(defun increment-number-at-point ()
+  (interactive)
+  (skip-chars-backward "0-9")
+  (or (looking-at "[0-9]+")
+      (error "No number at point"))
+  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+(global-set-key (kbd "C-a") 'increment-number-at-point)
+
+
+;; Image previews in dired
+
+;;     (:map dired-mode-map
+;;      "C-x i" #'peep-dired
+;;      )))
+;; (evil-define-key 'normal peep-dired-mode-map (kbd "j") 'peep-dired-next-file
+;;                                              (kbd "k") 'peep-dired-prev-file)
+;; (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -55,3 +93,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(custom-set-faces
+ )

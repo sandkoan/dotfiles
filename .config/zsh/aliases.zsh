@@ -2,7 +2,7 @@
 
 alias vim='nvim'
 # emacs in terminal, decent functionality, beautiful with background
-alias em="/usr/bin/emacs -nw"
+alias em="emacsclient -nw"
 # terminal is tied up
 alias emacs="emacsclient -c -a ''"
 # the terminal is not longer tied up with emacs
