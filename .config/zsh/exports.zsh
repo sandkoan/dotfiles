@@ -1,6 +1,5 @@
 # exports
 
-
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='nvim'
 else

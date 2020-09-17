@@ -218,7 +218,7 @@ def init_widgets_list():
                        ),
               widget.GroupBox(
                        font = my_font,
-                       fontsize = 11,
+                       fontsize = 14,
                        margin_y = 3,
                        margin_x = 0,
                        padding_y = 5,
@@ -236,6 +236,12 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[0]
                        ),
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 6,
+                       foreground = colors[2],
+                       background = colors[0]
+                       ),
               widget.Prompt(
                        prompt = prompt,
                        font = my_font,
@@ -245,7 +251,7 @@ def init_widgets_list():
                        ),
               widget.Sep(
                        linewidth = 0,
-                       padding = 40,
+                       padding = 6,
                        foreground = colors[2],
                        background = colors[0]
                        ),
@@ -294,13 +300,13 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[4]
                        ),
-              widget.TextBox(
-                       text = '',
-                       background = colors[4],
-                       foreground = colors[5],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              #  widget.TextBox(
+                       #  text = '',
+                       #  background = colors[4],
+                       #  foreground = colors[5],
+                       #  padding = 0,
+                       #  fontsize = 37
+                       #  ),
               widget.TextBox(
                        text = " 🖬",
                        foreground = colors[2],
@@ -314,13 +320,13 @@ def init_widgets_list():
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e ytop')},
                        padding = 5
                        ),
-              widget.TextBox(
-                       text='',
-                       background = colors[5],
-                       foreground = colors[4],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              #  widget.TextBox(
+                       #  text='',
+                       #  background = colors[5],
+                       #  foreground = colors[4],
+                       #  padding = 0,
+                       #  fontsize = 37
+                       #  ),
               widget.Net(
                        interface = "enp6s0",
                        format = '{down} ↓↑ {up}',
@@ -328,13 +334,13 @@ def init_widgets_list():
                        background = colors[4],
                        padding = 5
                        ),
-              widget.TextBox(
-                       text = '',
-                       background = colors[4],
-                       foreground = colors[5],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              #  widget.TextBox(
+                       #  text = '',
+                       #  background = colors[4],
+                       #  foreground = colors[5],
+                       #  padding = 0,
+                       #  fontsize = 37
+                       #  ),
               widget.TextBox(
                       text = " Vol:",
                        foreground = colors[2],
@@ -346,13 +352,12 @@ def init_widgets_list():
                        background = colors[5],
                        padding = 5
                        ),
-              widget.TextBox(
-                       text = '',
-                       background = colors[5],
-                       foreground = colors[4],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              #  widget.TextBox( text = '',
+                       #  background = colors[5],
+                       #  foreground = colors[4],
+                       #  padding = 0,
+                       #  fontsize = 37
+                       #  ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
                        foreground = colors[0],
@@ -365,13 +370,13 @@ def init_widgets_list():
                        background = colors[4],
                        padding = 5
                        ),
-              widget.TextBox(
-                       text = '',
-                       background = colors[4],
-                       foreground = colors[5],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              #  widget.TextBox(
+                       #  text = '',
+                       #  background = colors[4],
+                       #  foreground = colors[5],
+                       #  padding = 0,
+                       #  fontsize = 37
+                       #  ),
               widget.Clock(
                        foreground = colors[2],
                        background = colors[5],
