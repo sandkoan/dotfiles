@@ -29,19 +29,25 @@ if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|kitty$' ]]; then
         xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
 fi
 
+# # color man pages
+# export LESS_TERMCAP_mb=$'\E[01;32m'
+# export LESS_TERMCAP_md=$'\E[01;32m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;47;34m'
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;36m'
+# export LESS=-r
 
-# color man pages
-export LESS_TERMCAP_mb=$'\E[01;32m'
-export LESS_TERMCAP_md=$'\E[01;32m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;36m'
-export LESS=-r
+# vim as a pager
+export PAGER="nvim -R"
+# vim as a manpager
+export MANPAGER='nvim +Man!'
+# soft-wrapping
+export MANWIDTH=999
 
-export VISUAL="emacsclient -c -a emacs"   # $VISUAL use Emacs in GUI mode
-export ALTERNATE_EDITOR=""
+# export VISUAL="emacsclient -c -a emacs"   # $VISUAL use Emacs in GUI mode
+# export ALTERNATE_EDITOR=""
 export ZSHRC="~/.zshrc"
 export ZSH="~/.config/zsh"
 

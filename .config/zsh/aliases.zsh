@@ -18,17 +18,17 @@ run() { cco $1 && ./$1 & fg; }
 # run() { co $1 && ./$1 & fg; }
 
 # ls aliases
-# alias ls='ls --color=auto'
-# alias l='ls -lahCF --color=auto'
-# alias ll='ls -alhF --color=auto'
-# alias la='ls -A --color=auto'
+alias ls='ls --color=auto'
+alias l='ls -lahCF --color=auto'
+alias ll='ls -alhF --color=auto'
+alias la='ls -A --color=auto'
 
 # lsd aliases
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+# alias ls='lsd'
+# alias l='ls -l'
+# alias la='ls -a'
+# alias lla='ls -la'
+# alias lt='ls --tree'
 
 # grep
 alias grep='grep --color=auto'
@@ -73,11 +73,10 @@ alias cfga='config add'
 alias cfgc='config commit -m'
 alias cfgp='config push'
 
-alias g='git'
-
-alias ga='git add'
-alias gaa='git add --all'
-alias gau='git add -u'
-alias gc='git commit -m'
-alias gp='git push'
-alias gitu='git add . && git commit && git push'
+# alias g='git'
+# alias ga='git add'
+# alias gaa='git add --all'
+# alias gau='git add -u'
+# alias gc='git commit -m'
+# alias gp='git push'
+# alias gitu='git add . && git commit && git push'

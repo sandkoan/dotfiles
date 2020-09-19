@@ -1,0 +1,15 @@
+[user]
+	email = govind.gnanakumar@outlook.com
+	name = Govind Gnanakumar
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = !gitk
+[core]
+	pager = nvim -R
+[color]
+	pager = no
