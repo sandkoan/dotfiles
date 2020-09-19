@@ -13,3 +13,5 @@
 	pager = nvim -R
 [color]
 	pager = no
+[help]
+	autocorrect = 50
