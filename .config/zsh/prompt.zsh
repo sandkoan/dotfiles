@@ -1,4 +1,4 @@
-# vim:set fdm=manual
+# vim:set fdm=syntax
 
 setopt prompt_subst
 
@@ -60,7 +60,6 @@ git_info() {
   [[ ${#FLAGS[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)FLAGS}" )
   GIT_INFO+=( "\033[38;5;15m$GIT_LOCATION%{$reset_color%}" )
   echo "${(j: :)GIT_INFO}"
-
 }
 
 # Change cursor and prompt depending on vi mode
@@ -95,8 +94,11 @@ function TRAPINT() {
 
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
-PROMPT='
-$(ssh_info)%{$fg[magenta]%}%~%u $(git_info)
+PS1='
+$(ssh_info)%{$fg[blue]%}%~%u $(git_info)
 %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.${vim_mode})%{$reset_color%} '
 
-RPROMPT="%F{32}%D{%r}%f"
+RPS1="%F{242}%D{%r}%f"
+
+# PS4= "%_ %e"
+# RPS4="%N %i"
