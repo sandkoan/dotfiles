@@ -1,5 +1,5 @@
 $include /etc/inputrc
-
+$include ./inputrc-surround
 set bell-style none
 set history-size 10000
 
@@ -17,6 +17,15 @@ $if mode=vi
     "\e[B": history-search-forward
     "\C-w": backward-kill-word
     "\C-p": history-search-backward
+    "\C-b": backward-char 
+    # Insert matching parentheses
+    $if Guile
+        "\C-o": "()\C-b"
+    $endif
+
+    # Clear repl screen
+    "\C-l": clear-screen 
+
     # Change cursor shape
     set vi-ins-mode-string \1\e[6 q\2
     set vi-cmd-mode-string \1\e[2 q\2
@@ -26,10 +35,6 @@ $endif
 
 set blink-matching-paren on
 
-# Insert matching parentheses
-$if Guile
-    "\C-o": "()\C-b"
-$endif
 
 # Tab completion
 set show-all-if-ambiguous on

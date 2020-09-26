@@ -1,0 +1,14 @@
+########################################
+# Vim movements for i/a ()[]{}''**<>``""
+######################################## 
+
+$if mode=vi
+    set keymap vi-command
+    
+    "diw": "lbde"
+    "diW" "lBdE"
+
+$endif
+
+
+# vi: filetype=readline

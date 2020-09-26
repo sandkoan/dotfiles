@@ -69,10 +69,10 @@ alias free='free -m'                                            # Show sizes in 
 
 # git aliases
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfgs='config status'
-alias cfga='config add'
-alias cfgc='config commit -m'
-alias cfgp='config push'
+alias cfgs='cfg status'
+alias cfga='cfg add'
+alias cfgc='cfg commit -m'
+alias cfgp='cfg push'
 
 alias g='git'
 alias ga='git add'
