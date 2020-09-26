@@ -1,5 +1,6 @@
 # aliases
 
+alias vi='/usr/bin/vim'
 alias vim='nvim'
 # emacs in terminal, decent functionality, beautiful with background
 alias em="/usr/bin/emacsclient -nw"
@@ -67,16 +68,16 @@ alias df='df -h'                                                # Human-readable
 alias free='free -m'                                            # Show sizes in MB
 
 # git aliases
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfgs='config status'
 alias cfga='config add'
 alias cfgc='config commit -m'
 alias cfgp='config push'
 
-# alias g='git'
-# alias ga='git add'
-# alias gaa='git add --all'
-# alias gau='git add -u'
-# alias gc='git commit -m'
-# alias gp='git push'
-# alias gitu='git add . && git commit && git push'
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gau='git add -u'
+alias gc='git commit -m'
+alias gp='git push'
+alias gitu='git add . && git commit && git push'

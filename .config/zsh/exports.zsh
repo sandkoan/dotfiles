@@ -30,14 +30,14 @@ if [[ $(ps --no-header -p $PPID -o comm) =~ '^yakuake|kitty$' ]]; then
 fi
 
 # color man pages
-export LESS_TERMCAP_mb=$'\E[01;32m'
-export LESS_TERMCAP_md=$'\E[01;32m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;36m'
-export LESS=-r
+# export LESS_TERMCAP_mb=$'\E[01;32m'
+# export LESS_TERMCAP_md=$'\E[01;32m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;47;34m'
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;36m'
+# export LESS=-r
 
 # vim as a pager
 export PAGER="nvim -R"
@@ -49,7 +49,6 @@ export MANWIDTH=999
 # export VISUAL="emacsclient -c -a emacs"   # $VISUAL use Emacs in GUI mode
 # export ALTERNATE_EDITOR=""
 export ZSHRC="~/.zshrc"
-export ZSH="~/.config/zsh"
 
 if [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

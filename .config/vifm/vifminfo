@@ -6,13 +6,13 @@
 	..
 1596157431
 'b
-	/home/ggnana/bin/
+	/home/govindg/bin/
 	..
-1596157431
+1600726463
 'h
-	/home/ggnana/
+	/home/govindg/
 	..
-1596157431
+1600726463
 'z
 	/home/ggnana/.config/vifm
 	..
@@ -57,10 +57,34 @@ d/home
 d/home/ggnana
 	Documents
 2
+d/home
+	govindg
+1
+d/home/govindg
+	go
+17
+d/home/govindg/go
+	bin
+1
+d/home/govindg/go/bin
+	..
+0
+d/home/govindg/go
+	src
+3
+d/home/govindg/go/src
+	hello
+1
+d/home/govindg/go/src/hello
+	hello.go
+3
 d
 
 # Right window history (oldest to newest):
 D/home/ggnana
+	..
+0
+D/home
 	..
 0
 D

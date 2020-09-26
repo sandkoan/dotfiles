@@ -11,6 +11,10 @@
 	visual = !gitk
 [core]
 	pager = nvim -R
+[merge]
+	tool = nvimdiff4
+[mergetool "nvimdiff4"]
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [color]
 	pager = no
 [help]
