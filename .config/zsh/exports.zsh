@@ -40,7 +40,7 @@ fi
 # export LESS=-r
 
 # vim as a pager
-export PAGER="nvim -R"
+# export PAGER="nvim -R"
 # vim as a manpager
 export MANPAGER='nvim +Man!'
 # soft-wrapping

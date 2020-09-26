@@ -67,15 +67,8 @@
   (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
 (global-set-key (kbd "C-a") 'increment-number-at-point)
 
-
-;; Image previews in dired
-
-;;     (:map dired-mode-map
-;;      "C-x i" #'peep-dired
-;;      )))
-;; (evil-define-key 'normal peep-dired-mode-map (kbd "j") 'peep-dired-next-file
-;;                                              (kbd "k") 'peep-dired-prev-file)
-;; (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+;; open info mode in a split
+;; (set! :popup "*info*" :align 'right :size 0.5 :select t :autokill t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
