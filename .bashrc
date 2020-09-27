@@ -68,9 +68,8 @@ match_lhs=""
 
 get_git_branch() {
     git_branch=$(__git_ps1 " (%s)")
-    symbol=' '
     if [ -n "$git_branch" ]; then 
-        echo "$symbol$git_branch"
+        echo "$git_branch"
     else 
         echo ""
     fi
@@ -79,9 +78,9 @@ get_git_branch() {
 change_color_exit_status() {
     if [ "$?" == "0" ]
     then
-        echo -e '\e[0;32m$ '
+        echo -e "\e[0;32m\$"
     else
-        echo -e '\e[0;31m$ '
+        echo -e "\e[0;31m\$"
     fi
 }
 
@@ -99,7 +98,7 @@ if ${use_color} ; then
         PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
     else
         # PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(get_git_branch)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\]▶\[\033[0m\033[0;32m\] \$\[\033[0m\] '
-        PS1='\[\033[0;36m\]\w\[\033[0;32m\]$(get_git_branch)\[\033[0m\033[0;32m\] \$\[\033[0m\] '
+        PS1='\[\033[0;36m\]\w\[\033[0;32m\]$(get_git_branch)\[\033[0m\033[0;32m\] $(change_color_exit_status)\[\033[0m\] '
     fi
 
     alias ls='ls --color=auto'
@@ -342,8 +341,3 @@ CDPATH="."
 # This allows you to bookmark your favorite places across the file system
 # Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
 shopt -s cdable_vars
-
-
-# bash powerline prompt
-# source ~/.bash-powerline.sh
-
