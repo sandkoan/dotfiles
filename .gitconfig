@@ -3,8 +3,9 @@
 	name = Govind Gnanakumar
 [alias]
 	co = checkout
+	ad = add
 	br = branch
-	ci = commit
+	ci = commit --verbose
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
