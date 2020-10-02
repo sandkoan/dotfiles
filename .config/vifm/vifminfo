@@ -31,60 +31,201 @@ r2
 
 # Left window history (oldest to newest):
 d/home/ggnana
-	Music
-4
-d/home/ggnana/Music
 	..
 0
-d/home/ggnana
-	Music
-4
-d/home/ggnana/Music
-	..
-0
-d/home/ggnana
-	Music
-4
-d/home
-	ggnana
-1
-d/
-	home
-4
-d/home
-	ggnana
-1
-d/home/ggnana
-	Documents
-2
 d/home
 	govindg
 1
 d/home/govindg
-	go
-17
-d/home/govindg/go
-	bin
-1
-d/home/govindg/go/bin
 	..
 0
-d/home/govindg/go
-	src
-3
-d/home/govindg/go/src
-	hello
-1
-d/home/govindg/go/src/hello
-	hello.go
-3
+d/home
+	root
+2
+d/home/root
+	..
+0
 d
 
 # Right window history (oldest to newest):
 D/home/ggnana
+	Music
+4
+D/home/ggnana/Music
 	..
 0
+D/home/ggnana
+	Music
+4
+D/home/ggnana/Music
+	..
+0
+D/home/ggnana
+	Music
+4
 D/home
+	ggnana
+1
+D/
+	home
+4
+D/home
+	ggnana
+1
+D/home/ggnana
+	Documents
+2
+D/home
+	govindg
+1
+D/home/govindg
+	go
+17
+D/home/govindg/go
+	bin
+1
+D/home/govindg/go/bin
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	hello
+1
+D/home/govindg/go/src/hello
+	Makefile
+2
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg
+	go
+15
+D/home
+	govindg
+1
+D/
+	home
+4
+D/home
+	govindg
+1
+D/home/govindg
+	go
+15
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	src
+3
+D/home/govindg/go/src
+	..
+0
+D/home/govindg/go
+	..
+0
+D/home/govindg
+	go
+15
+D/home/govindg/go
+	..
+0
+D/home/govindg
+	go
+15
+D/home/govindg/go
 	..
 0
 D

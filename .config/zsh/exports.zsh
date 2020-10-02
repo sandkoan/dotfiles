@@ -1,10 +1,6 @@
 # exports
 
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='nvim'
-else
-    export EDITOR='nvim'
-fi
+export EDITOR='nvim'
 
 # Use syntax highlighting
 [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] &&
