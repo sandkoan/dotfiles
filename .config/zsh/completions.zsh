@@ -4,6 +4,7 @@ zmodload -i zsh/complist
 
 # bookmark directories, kind of like z
 setopt cdablevars
+
 code=~/Code
 scripts=~/scripts
 zrc=~/.zshrc
@@ -12,8 +13,6 @@ doom=~/.config/doom
 nvi=~/.config/nvim
 kit=~/.config/kitty
 qti=~/.config/qtile
-
-build
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
