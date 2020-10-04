@@ -5,3 +5,4 @@
 [ -f $HOME/.config/zsh/completions.zsh ] && source $HOME/.config/zsh/completions.zsh
 [ -f $HOME/.config/zsh/keys.zsh ] && source $HOME/.config/zsh/keys.zsh
 [ -f $HOME/.config/zsh/prompt.zsh ] && source $HOME/.config/zsh/prompt.zsh
+[ -f $HOME/.config/zsh/dirs.zsh ] && source $HOME/.config/zsh/dirs.zsh

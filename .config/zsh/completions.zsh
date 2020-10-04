@@ -35,10 +35,19 @@ bindkey -M menuselect '^o' accept-and-infer-next-history
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
+# Categorize completion suggestions with headings:
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
 zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' list-colors 'fi=35:di=34'         # Colored completion (different colors for dirs/files/etc)
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+# Allow completion of ..<Tab> to ../ and beyond.
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
+
+# $CDPATH is overpowered (can allow us to jump to 100s of directories) so tends
+# to dominate completion; exclude path-directories from the tag-order so that
+# they will only be used as a fallback if no completions are found.
+zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories'
 zstyle ':completion:*' rehash true                              # automatically find new executables in path 
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix

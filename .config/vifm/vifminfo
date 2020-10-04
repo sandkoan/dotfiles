@@ -45,6 +45,24 @@ d/home
 d/home/root
 	..
 0
+d/home
+	govindg
+1
+d/
+	home
+4
+d/home
+	govindg
+1
+d/home/govindg
+	Code
+1
+d/home/govindg/Code
+	bash
+2
+d/home/govindg/Code/bash
+	jump
+3
 d
 
 # Right window history (oldest to newest):

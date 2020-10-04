@@ -75,3 +75,10 @@ startcolors() {
 }
 
 startcolors
+
+# current working directory in terminal titlebar
+function chpwd() {
+    print -Pn "\e]2;%~\a"
+}
+
+autoload -U tetriscurses sticky-note calendar ztodo

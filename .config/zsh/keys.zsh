@@ -4,8 +4,12 @@ export KEYTIMEOUT=20
 
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
+# fix delete key
+bindkey '^[[3~' delete-char
+bindkey '^[3;5~' delete-char
 
-# Fancy ctrl+z
+# use ctrl-z to toggle background processes
+# don't need to type fg everytime
 function fancy-ctrl-z () {
     if [[ $#BUFFER -eq 0 ]]; then
         fg
