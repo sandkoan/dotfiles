@@ -81,4 +81,5 @@ function chpwd() {
     print -Pn "\e]2;%~\a"
 }
 
-autoload -U tetriscurses sticky-note calendar ztodo zed zmv allopt zcalc
+autoload -U tetriscurses sticky-note
+autoload -U calendar ztodo zed zmv allopt zcalc
