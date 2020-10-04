@@ -58,7 +58,7 @@ zstyle ':completion:*' rehash true                              # automatically 
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' max-errors 5 numeric
-zstyle ':completion:*' menu select
+
 zstyle ':completion:*' prompt 'Δ'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl true
