@@ -34,16 +34,48 @@ bindkey -M menuselect '^o' accept-and-infer-next-history
 
 # The following lines were added by compinstall
 
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle :compinstall filename '~/.config/zsh/completions.zsh'
+
+zstyle ':completion:*' list-colors 'fi=35:di=34'         # Colored completion (different colors for dirs/files/etc)
+
+# Group matches and describe.
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+zstyle ':completion:*' list-suffixes
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' max-errors 5 numeric
+zstyle ':completion:*' menu select
+zstyle ':completion:*' prompt 'Δ'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl true
+zstyle ':completion:*' accept-exact '*(N)'
+
+# Allow completion of ..<Tab> to ../ and beyond.
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
+
+# $CDPATH is overpowered (can allow us to jump to 100s of directories) so tends
+# to dominate completion; exclude path-directories from the tag-order so that
+# they will only be used as a fallback if no completions are found.
+zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories directory-stack path-directories'
+
 # Fuzzy match mistyped completions.
 zstyle ':completion:*' completer _complete _match _expand _approximate _ignored
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-# Categorize completion suggestions with headings:
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format %F{default}%B%b%f
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' list-colors 'fi=35:di=34'         # Colored completion (different colors for dirs/files/etc)
 
 # 0 -- vanilla completion (abc => abc)
 # 1 -- smart case completion (abc => Abc)
@@ -54,27 +86,7 @@ zstyle ':completion:*' matcher-list '' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-zstyle ':completion:*' rehash true                              # automatically find new executables in path 
-zstyle ':completion:*' list-suffixes
-zstyle ':completion:*' expand prefix suffix
-zstyle ':completion:*' max-errors 5 numeric
-zstyle ':completion:*' menu select
-zstyle ':completion:*' prompt 'Δ'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl true
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle :compinstall filename '~/.config/zsh/completions.zsh'
-
-# Allow completion of ..<Tab> to ../ and beyond.
-zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
-
-# $CDPATH is overpowered (can allow us to jump to 100s of directories) so tends
-# to dominate completion; exclude path-directories from the tag-order so that
-# they will only be used as a fallback if no completions are found.
-zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories directory-stack path-directories'
+zstyle ':completion:*' insert-unambiguous true
 
 # Increase the number of errors based on the length of the typed word.
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
