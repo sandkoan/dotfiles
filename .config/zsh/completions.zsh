@@ -9,11 +9,10 @@ scripts=~/scripts
 zrc=~/.zshrc
 zdir=~/.config/zsh
 doom=~/.config/doom
-i3dir=~/.config/i3
 kit=~/.config/kitty
 qti=~/.config/qtile
-ala=~/.config/alacritty
-xmo=~/.xmonad/
+
+build
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
@@ -40,7 +39,18 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors 'fi=35:di=34'         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+
+# zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+
+# 0 -- vanilla completion (abc => abc)
+# 1 -- smart case completion (abc => Abc)
+# 2 -- word flex completion (abc => A-big-Car)
+# 3 -- full flex completion (abc => ABraCadabra)
+zstyle ':completion:*' matcher-list '' \
+  'm:{a-z\-}={A-Z\_}' \
+  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+  'r:|?=** m:{a-z\-}={A-Z\_}'
+
 # Allow completion of ..<Tab> to ../ and beyond.
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 
