@@ -33,10 +33,10 @@ bindkey -M menuselect '^o' accept-and-infer-next-history
 
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' completer _expand _complete _approximate _ignored
 # Categorize completion suggestions with headings:
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
+zstyle ':completion:*:descriptions' format %F{default}%B%b%f
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors 'fi=35:di=34'         # Colored completion (different colors for dirs/files/etc)
 
