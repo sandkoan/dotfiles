@@ -10,6 +10,9 @@ export EDITOR='nvim'
 [ -f "/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" ] &&
     source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ] && 
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+
 [ -d "$HOME/bin" ] && PATH=$PATH:$HOME/bin
 
 [ -d ~/bin/shell-color-scripts ] && PATH=$PATH:$HOME/bin/shell-color-scripts:$HOME/bin/shell-color-scripts/colorscripts
