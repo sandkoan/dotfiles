@@ -28,8 +28,6 @@ setopt auto_menu         # show completion menu on successive tab press
 setopt complete_in_word
 setopt always_to_end
 setopt correct_all
-# should this be in keybindings?
-bindkey -M menuselect '^o' accept-and-infer-next-history
 
 # The following lines were added by compinstall
 
@@ -72,7 +70,7 @@ zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)
 zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories directory-stack path-directories'
 
 # Fuzzy match mistyped completions.
-zstyle ':completion:*' completer _complete _match _expand _approximate _ignored
+zstyle ':completion:*' completer _expand_alias _complete _match _expand _approximate _ignored
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
