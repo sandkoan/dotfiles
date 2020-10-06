@@ -1,5 +1,5 @@
 $include /etc/inputrc
-$include ./inputrc-surround
+
 set bell-style none
 set history-size 10000
 
