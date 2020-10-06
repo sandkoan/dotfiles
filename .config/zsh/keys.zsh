@@ -10,7 +10,7 @@ bindkey '^[3;5~' delete-char
 
 # use ctrl-z to toggle background processes
 # don't need to type fg everytime
-function fancy-ctrl-z () {
+fancy-ctrl-z () {
     if [[ $#BUFFER -eq 0 ]]; then
         fg
         zle redisplay
@@ -21,6 +21,14 @@ function fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+expand-or-complete-with-dots() {
+  echo -n "\e[31m...\e[0m"
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
 
 # vim surround
 autoload -Uz surround
