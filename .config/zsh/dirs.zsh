@@ -4,10 +4,6 @@
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-c() {
-    cdr
-}
-
 # autocd by typing directory name
 setopt auto_cd
 
