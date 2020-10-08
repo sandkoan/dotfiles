@@ -1,5 +1,6 @@
 # aliases
 
+# editors
 alias vi='/usr/bin/vim'
 alias vim='nvim'
 # emacs in terminal, decent functionality, beautiful with background
@@ -9,12 +10,18 @@ alias emacs="emacsclient -c -a ''"
 # the terminal is not longer tied up with emacs
 alias nemacs='emacsclient -nc'
 
-alias top='top -u $USER -c'  
+# utils
 
-cco() { gcc -std=c99 -g -O2 -o $1 $1.c -Wall; }
-run() { cco $1 && ./$1 & fg; }
+alias top='top -u $USER'  
 
-# ls aliases
+if command -v nvim &> /dev/null
+then
+    alias diff='nvim -d'
+else
+    alias diff='diff --color=auto'
+fi
+
+# ls
 alias ls='ls --color=auto'
 alias l='ls -lahCF --color=auto'
 alias ll='ls -alhF --color=auto'
@@ -41,6 +48,9 @@ alias rm='rm -I'
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
+
+cco() { gcc -std=c99 -g -O2 -o $1 $1.c -Wall; }
+run() { cco $1 && ./$1 & fg; }
 
 # git aliases
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
