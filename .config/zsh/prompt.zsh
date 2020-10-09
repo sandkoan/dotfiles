@@ -62,43 +62,23 @@ git_info() {
   echo "${(j: :)GIT_INFO}"
 }
 
-# Change cursor and prompt depending on vi mode
-vim_ins_mode="❯"
-vim_cmd_mode="❮"
-vim_mode=$vim_ins_mode
-echo -ne '\e[5 q'
-
-function zle-keymap-select {
-    if [ $KEYMAP = vicmd ]
-    then
-        vim_mode=$vim_cmd_mode
-        echo -ne '\e[1 q'
-    else
-        vim_mode=$vim_ins_mode
-        echo -ne '\e[5 q'
-    fi
-    zle reset-prompt
-}
-zle -N zle-keymap-select
-
-function zle-line-finish {
-    vim_mode=$vim_ins_mode
-}
-zle -N zle-line-finish
-# Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode indicator, while in fact you would be in INS mode
-# Fixed by catching SIGINT (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything else depends on it, we will not break it
-function TRAPINT() {
-    vim_mode=$vim_ins_mode
-    return $(( 128 + $1 ))
-} 
-
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
 $(ssh_info)%{$fg[blue]%}%~%u $(git_info)
-%(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.${vim_mode})%{$reset_color%} '
+%(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
 
-RPS1="%F{242}%D{%r}%f"
+get_last_exit_code() {
+    local LAST_EXIT_CODE=$?
+    if [[ $LAST_EXIT_CODE -ne 0 ]]
+    then
+        echo "%F{61}$LAST_EXIT_CODE%f "
+    else
+        echo ""
+    fi
+}
+
+RPS1='$(get_last_exit_code)%F{242}%D{%r}%f'
 
 # PS4= "%_ %e"
 # RPS4="%N %i"
