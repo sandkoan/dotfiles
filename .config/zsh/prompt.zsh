@@ -1,6 +1,7 @@
 # vim:set fdm=syntax
 
 setopt prompt_subst
+setopt transient_rprompt
 
 # Echoes a username/host string when connected over SSH (empty otherwise)
 ssh_info() {
