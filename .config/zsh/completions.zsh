@@ -16,11 +16,13 @@ qti=~/.config/qtile
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-
+# Globbing
 # Sort filenames numerically when it makes sense
 setopt numericglobsort 
  # Case insensitive globbing
 setopt nocaseglob  
+setopt glob_dots
+setopt glob_star_short
 
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
@@ -28,8 +30,6 @@ setopt auto_menu         # show completion menu on successive tab press
 setopt complete_in_word
 setopt always_to_end
 setopt correct_all
-
-# The following lines were added by compinstall
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -175,6 +175,5 @@ zstyle ':chpwd:*' recent-dirs-default true
 autoload -Uz compinit colors
 compinit
 colors
-# End of lines added by compinstall
 
 autoload -U +X bashcompinit && bashcompinit

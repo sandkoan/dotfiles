@@ -10,8 +10,11 @@ export EDITOR='nvim'
 [ -f "/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" ] &&
     source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ] && 
-    source /usr/share/doc/pkgfile/command-not-found.zsh
+# Offer to install missing package if command is not found
+if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
+    source /usr/share/zsh/functions/command-not-found.zsh
+    export PKGFILE_PROMPT_INSTALL_MISSING=1
+fi
 
 [ -d "$HOME/bin" ] && PATH=$PATH:$HOME/bin
 
