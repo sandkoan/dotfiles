@@ -11,6 +11,16 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushdminus
 
+
+# current working directory in terminal titlebar
+function chpwd() {
+    print -Pn "\e]2;%~\a"
+}
+
+cr() {
+    cdr
+}
+
 alias ~="cd ~"
 alias ..='cd ..'
 alias ...='cd ../..'

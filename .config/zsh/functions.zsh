@@ -76,14 +76,5 @@ startcolors() {
 
 startcolors
 
-# current working directory in terminal titlebar
-function chpwd() {
-    print -Pn "\e]2;%~\a"
-}
-
-cr() {
-    cdr
-}
-
 autoload -U tetriscurses sticky-note
 autoload -U calendar ztodo zed zmv allopt zcalc
