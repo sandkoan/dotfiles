@@ -4,7 +4,7 @@ bindkey -e
 # cursor as thin line
 echo -ne '\e[5 q'
 
-# C-del and C-backspace
+# Control + delete/backspace
 bindkey '^[[3;5~' kill-word
 bindkey '^H' backward-kill-word
 
@@ -12,6 +12,10 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+
+# Control + arrow keys
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 # [Esc-l] - run command: ls
 bindkey -s '\el' 'ls\n' 
@@ -22,7 +26,7 @@ bindkey "^[m" copy-prev-shell-word
 # Edit the current command line in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
+bindkey '^X^X' edit-command-line
 
 # Use ctrl-z to toggle background processes
 # don't need to type fg everytime
