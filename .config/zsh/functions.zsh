@@ -74,6 +74,10 @@ startcolors() {
     fi
 }
 
+wttr() {
+    curl wttr.in
+}
+
 startcolors
 
 autoload -U tetriscurses sticky-note
