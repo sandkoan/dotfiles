@@ -66,20 +66,19 @@ git_info() {
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
-$(ssh_info)%{$fg[blue]%}%~%u $(git_info)
+$(ssh_info)%{$fg[blue]%}%~%u %F{242}%(1j.%j.)%f $(git_info)
 %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
 
-get_last_exit_code() {
+get_rprompt() {
     local LAST_EXIT_CODE=$?
+    local RPROMPT_STRING=""
     if [[ $LAST_EXIT_CODE -ne 0 ]]
     then
-        echo "%F{61}$LAST_EXIT_CODE%f "
-    else
-        echo ""
+        RPROMPT_STRING+="%F{61}$LAST_EXIT_CODE%f "
     fi
+    # time
+    RPROMPT_STRING+="%F{242}%D{%r}%f"
+    echo "$RPROMPT_STRING"
 }
 
-RPS1='$(get_last_exit_code)%F{242}%D{%r}%f'
-
-# PS4= "%_ %e"
-# RPS4="%N %i"
+RPS1='$(get_rprompt)'
