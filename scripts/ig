@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Simple script using GNU coreutils that colorizes ls commands
+
+_usage() {
+    echo "Usage: $0 [-l][-a | -A]" 1>&2
+    echo 'This is a simple script using GNU coreutils that colorizes ls commands'
+    echo "Most ls flags can be passed to $0"
+}
+
+_exit_abnormal() {
+    _usage
+    exit 1
+}
+
+main() {
+    /usr/bin/ls --color=always -lAh | awk '{ $1="\033[0;33m" $1 "\033[0m"; \
+        $2="\033[0;32m" $2 "\033[0m"; \
+        $3="\033[0;34m" $3 "\033[0m"; \
+        $4="\033[0;35m" $4 "\033[0m" } 1' | column --table
+
+    exit 0
+}
+
+main
+
+[[ $? -ne 0 ]] && _exit_abnormal

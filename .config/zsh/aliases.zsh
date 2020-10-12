@@ -23,9 +23,9 @@ fi
 
 # ls
 alias ls='ls --color=auto'
-alias l='ls -lahCF --color=auto'
-alias ll='ls -alhF --color=auto'
-alias la='ls -A --color=auto'
+alias l='ls -lahCF'
+alias ll='ls -alhF'
+alias la='ls -A'
 
 # lsd aliases
 # alias ls='lsd'
