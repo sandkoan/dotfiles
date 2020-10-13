@@ -1,4 +1,3 @@
-# load bashcompinit for some old bash completions
 # Basic auto/tab complete:
 zmodload -i zsh/complist
 
@@ -176,4 +175,5 @@ autoload -Uz compinit colors
 compinit
 colors
 
+# load bashcompinit for some old bash completions
 autoload -U +X bashcompinit && bashcompinit
