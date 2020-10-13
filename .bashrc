@@ -280,8 +280,8 @@ HISTTIMEFORMAT='%F %T '
 # Enable incremental history search with up/down arrows (also Readline goodness)
 # Learn more about this here: http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-hi
 # bash4 specific ??
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+bind '"\e[A": history-substring-search-backward'
+bind '"\e[B": history-substring-search-forward'
 bind '"\e[C": forward-char'
 bind '"\e[D": backward-char'
 
