@@ -2,8 +2,8 @@
 
 # editors
 alias vi='/usr/bin/vim'
-alias vim='nvim'
-# emacs in terminal, decent functionality, beautiful with background
+alias vim='/usr/bin/nvim'
+# terminal emacs
 alias em="/usr/bin/emacsclient -nw"
 # terminal is tied up
 alias emacs="emacsclient -c -a ''"
@@ -34,12 +34,6 @@ alias la='ls -A'
 # alias lla='ls -la'
 # alias lt='ls --tree'
 
-# grep
-alias grep='grep --color=auto'
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
-alias sgrep='grep -R -n -H -C 5 --color=auto --exclude-dir={.git,.svn,CVS}'
-alias hgrep='fc -El 0 | grep --color=auto'
 
 # TODO if you run clear, every 10th time run asciiquarium or sl steam locomotive
 alias cls='clear'
