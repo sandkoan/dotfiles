@@ -34,6 +34,14 @@ alias la='ls -A'
 # alias lla='ls -la'
 # alias lt='ls --tree'
 
+# grep
+
+EXC_FOLDERS="{.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+GREP_OPTIONS="--color=auto --exclude-dir=$EXC_FOLDERS"
+alias grep="grep $GREP_OPTIONS"
+alias egrep="egrep $GREP_OPTIONS"
+alias fgrep="fgrep $GREP_OPTIONS"
+alias sgrep="grep -R -n -H -C 5 $GREP_OPTIONS"
 
 # TODO if you run clear, every 10th time run asciiquarium or sl steam locomotive
 alias cls='clear'
