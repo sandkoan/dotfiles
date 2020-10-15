@@ -27,7 +27,7 @@ bindkey '^[Od' backward-word                                    #
 bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
-bindkey '^[[3;5~'                                               # kill-word # delete next word with ctrl+delete
+bindkey '^[[3;5~' forward-kill-word                             # kill-word # delete next word with ctrl+delete
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 bindkey '^[[A' history-substring-search-up

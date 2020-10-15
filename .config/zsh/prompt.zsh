@@ -66,7 +66,7 @@ git_info() {
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
-$(ssh_info)%{$fg[blue]%}%~%u %F{242}%(1j.%j.)%f $(git_info)
+$(ssh_info)%{$fg[blue]%}%~%u %F{242}%(1j.%j.)%f$(git_info)
 %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
 
 get_rprompt() {

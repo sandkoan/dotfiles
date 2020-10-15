@@ -23,8 +23,8 @@ fi
 
 # ls
 alias ls='ls --color=auto'
-alias l='ls -lahCF'
-alias ll='ls -alhF'
+alias ll='ls -AlhCF'
+alias l='ls -A'
 alias la='ls -A'
 
 # lsd aliases
