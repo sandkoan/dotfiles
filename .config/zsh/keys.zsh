@@ -22,22 +22,25 @@ bindkey '^[[5~' history-beginning-search-backward               # Page up key
 bindkey '^[[6~' history-beginning-search-forward                # Page down key
 
 # Navigate words with ctrl+arrow keys
-bindkey '^[Oc' forward-word                                     #
-bindkey '^[Od' backward-word                                    #
+bindkey '^[Oc'    forward-word                                     #
+bindkey '^[Od'    backward-word                                    #
 bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
-bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
-bindkey '^[[3;5~' forward-kill-word                             # kill-word # delete next word with ctrl+delete
-bindkey '^[[Z' undo                                             # Shift+tab undo last action
+bindkey '^H'      backward-kill-word                                 # delete previous word with ctrl+backspace
+bindkey '^[[Z'    undo                                             # Shift+tab undo last action
+
+# delete next word with ctrl+delete
+forward-kill-word() {
+    zle forward-word
+    zle backward-kill-word
+}
+zle -N forward-kill-word
+bindkey '^[[3;5~' forward-kill-word                              
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-
-# Control + arrow keys
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;5D' backward-word
+bindkey '^P'   history-substring-search-up
+bindkey '^N'   history-substring-search-down
 
 # [Esc-l] - run command: ls
 bindkey -s '\el' 'ls\n' 
