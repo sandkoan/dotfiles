@@ -17,9 +17,32 @@ function chpwd() {
     print -Pn "\e]2;%~\a"
 }
 
-cr() {
-    cdr
+# https://www.bigeekfan.com/post/20200705_z_in_zsh_with_cdr/
+function z () {
+
+    # grep the list of dirs known by cdr 
+    local lines=$(cdr -l | grep --ignore-case "${1}")
+
+    # if grep doesn't find anything do nothing and
+    # return an error code.
+    if [ -z "$lines" ]; then
+        return 1
+
+    elif [ $(wc -l <<< "$lines") -eq 1 ]; then
+        # if there is only one match, cdr to it using the
+        # number prefix
+        cdr "${lines%% *}"
+        
+    else
+        # if there are multiple matches, run
+        # fzf
+        local selected_dir=$(cdr -l | fzf --query "${1}")
+        if [ -n "$selected_dir" ]; then
+            cdr "${selected_dir%% *}"
+        fi
+    fi
 }
+
 
 alias ~="cd ~"
 alias ..='cd ..'
