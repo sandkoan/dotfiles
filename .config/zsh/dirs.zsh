@@ -4,6 +4,11 @@
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
+zstyle ':chpwd:*' recent-dirs-max 1000
+
+# Sets up cdr to also do cd commands
+zstyle ':chpwd:*' recent-dirs-default true
+
 # autocd by typing directory name
 setopt auto_cd
 
@@ -11,14 +16,13 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushdminus
 
-
 # current working directory in terminal titlebar
 function chpwd() {
     print -Pn "\e]2;%~\a"
 }
 
 # https://www.bigeekfan.com/post/20200705_z_in_zsh_with_cdr/
-function z () {
+function z() {
 
     # grep the list of dirs known by cdr 
     local lines=$(cdr -l | grep --ignore-case "${1}")
@@ -32,13 +36,16 @@ function z () {
         # if there is only one match, cdr to it using the
         # number prefix
         cdr "${lines%% *}"
-        
+
     else
-        # if there are multiple matches, run
-        # fzf
-        local selected_dir=$(cdr -l | fzf --query "${1}")
-        if [ -n "$selected_dir" ]; then
-            cdr "${selected_dir%% *}"
+        # if there are multiple matches, run fzf
+        if command -v fzf &> /dev/null; then
+            local selected_dir=$(cdr -l | fzf --query "${1}")
+            if [ -n "$selected_dir" ]; then
+                cdr "${selected_dir%% *}"
+            fi
+        else 
+            cdr
         fi
     fi
 }
