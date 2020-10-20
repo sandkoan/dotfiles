@@ -1,7 +1,7 @@
 # directory functions and aliases
 
 # cdr
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook ztodo
 add-zsh-hook chpwd chpwd_recent_dirs
 
 zstyle ':chpwd:*' recent-dirs-max 1000
@@ -19,6 +19,7 @@ setopt pushdminus
 # current working directory in terminal titlebar
 function chpwd() {
     print -Pn "\e]2;%~\a"
+    ztodo
 }
 
 # https://www.bigeekfan.com/post/20200705_z_in_zsh_with_cdr/
