@@ -81,4 +81,4 @@ wttr() {
 startcolors
 
 autoload -U tetriscurses sticky-note
-autoload -U calendar ztodo zed zmv allopt zcalc
+autoload -U calendar zed zmv allopt zcalc
