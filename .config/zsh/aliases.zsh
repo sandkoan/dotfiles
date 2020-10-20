@@ -11,6 +11,7 @@ alias emacs="emacsclient -c -a ''"
 alias nemacs='emacsclient -nc'
 
 # utils
+alias cls='clear'
 
 alias top='top -u $USER'  
 
@@ -23,9 +24,15 @@ fi
 
 # ls
 alias ls='ls --color=auto'
-alias ll='ls -AlhCF'
-alias l='ls -A'
-alias la='ls -A'
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ll='ls -l'      #long list
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
 
 # lsd aliases
 # alias ls='lsd'
@@ -43,13 +50,16 @@ alias egrep="egrep $GREP_OPTIONS"
 alias fgrep="fgrep $GREP_OPTIONS"
 alias sgrep="grep -R -n -H -C 5 $GREP_OPTIONS"
 
-# TODO if you run clear, every 10th time run asciiquarium or sl steam locomotive
-alias cls='clear'
-
-alias rm='rm -I'
-alias cp="cp -i"                                                # Confirm before overwriting something
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+                                              # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
 
 cco() { gcc -std=c99 -g -O2 -o $1 $1.c -Wall; }
 run() { cco $1 && ./$1 & fg; }
