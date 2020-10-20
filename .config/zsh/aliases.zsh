@@ -50,9 +50,9 @@ alias egrep="egrep $GREP_OPTIONS"
 alias fgrep="fgrep $GREP_OPTIONS"
 alias sgrep="grep -R -n -H -C 5 $GREP_OPTIONS"
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
                                               # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
