@@ -19,7 +19,7 @@ setopt pushdminus
 # current working directory in terminal titlebar
 function chpwd() {
     print -Pn "\e]2;%~\a"
-    ztodo
+    ztodo list
 }
 
 # https://www.bigeekfan.com/post/20200705_z_in_zsh_with_cdr/

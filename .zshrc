@@ -6,3 +6,6 @@
 [ -f $HOME/.config/zsh/dirs.zsh ] && source $HOME/.config/zsh/dirs.zsh
 [ -f $HOME/.config/zsh/completions.zsh ] && source $HOME/.config/zsh/completions.zsh
 [ -f $HOME/.config/zsh/prompt.zsh ] && source $HOME/.config/zsh/prompt.zsh
+
+# opam configuration
+test -r /home/govindg/.opam/opam-init/init.zsh && . /home/govindg/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

@@ -22,6 +22,11 @@ else
     alias diff='diff --color=auto'
 fi
 
+if command -v kitty &> /dev/null
+then
+    alias icat="kitty +kitten icat"
+fi
+
 # ls
 alias ls='ls --color=auto'
 alias l='ls -lFh'     #size,show type,human readable
