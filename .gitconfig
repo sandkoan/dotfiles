@@ -7,6 +7,7 @@
 	br = branch
 	ci = commit --verbose
 	st = status
+	gg = grep
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	visual = !gitk
