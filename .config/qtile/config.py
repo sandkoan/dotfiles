@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-import re
 import socket
-import subprocess
-from libqtile.config import Screen, Group, ScratchPad, DropDown, EzKey as Key, EzClick as Click, EzDrag as Drag 
+from libqtile.config import Screen, Group, ScratchPad, DropDown, EzKey as Key, EzClick as Click, EzDrag as Drag
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget, hook
 
@@ -12,9 +10,8 @@ from typing import List  # noqa: F401
 
 ######### Keys #########
 my_term = "kitty"
-my_font =  "Mononoki Nerd Font"
-#  my_font =  "JetBrainsMono Nerd Font"
-my_editor = "emacs"
+my_font = "Mononoki Nerd Font"
+my_editor = "nvim-gtk"
 my_browser = "google-chrome-stable"
 my_launcher = "dmenu_run -fn 'Mononoki Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'"
 
@@ -80,67 +77,68 @@ keys = [
             desc='Move focus down in current stack pane'
             ),
         Key("M-j",
-                lazy.layout.up(),
-                desc='Move focus up in current stack pane'
-                ),
+            lazy.layout.up(),
+            desc='Move focus up in current stack pane'
+            ),
         Key("M-S-k",
-                lazy.layout.shuffle_down(),
-                desc='Move windows down in current stack'
-                ),
+            lazy.layout.shuffle_down(),
+            desc='Move windows down in current stack'
+            ),
         Key("M-S-j",
-                lazy.layout.shuffle_up(),
-                desc='Move windows up in current stack'
-                ),
+            lazy.layout.shuffle_up(),
+            desc='Move windows up in current stack'
+            ),
         Key("M-h",
-                lazy.layout.grow(),
-                lazy.layout.increase_nmaster(),
-                desc='Expand window (MonadTall), increase number in master pane (Tile)'
-                ),
+            lazy.layout.grow(),
+            lazy.layout.increase_nmaster(),
+            desc='Expand window (MonadTall), increase number in master pane (Tile)'
+            ),
         Key("M-l",
-                lazy.layout.shrink(),
-                lazy.layout.decrease_nmaster(),
-                desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
-                ),
+            lazy.layout.shrink(),
+            lazy.layout.decrease_nmaster(),
+            desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
+            ),
         Key("M-n",
-                lazy.layout.normalize(),
-                desc='normalize window size ratios'
-                ),
+            lazy.layout.normalize(),
+            desc='normalize window size ratios'
+            ),
         Key("M-m",
-                lazy.layout.maximize(),
-                desc='toggle window between minimum and maximum sizes'
-                ),
+            lazy.layout.maximize(),
+            desc='toggle window between minimum and maximum sizes'
+            ),
         Key("M-S-f",
-                lazy.window.toggle_floating(),
-                desc='toggle floating'
-                ),
+            lazy.window.toggle_floating(),
+            desc='toggle floating'
+            ),
         Key("M-S-m",
-                lazy.window.toggle_fullscreen(),
-                desc='toggle fullscreen'
-                ),
+            lazy.window.toggle_fullscreen(),
+            desc='toggle fullscreen'
+            ),
          Key("M-S-<space>",
-                 lazy.layout.rotate(),
-                 lazy.layout.flip(),
-                 desc='Switch which side main pane occupies (XmonadTall)'
-                 ),
+             lazy.layout.rotate(),
+             lazy.layout.flip(),
+             desc='Switch which side main pane occupies (XmonadTall)'
+             ),
          Key("M-<space>",
-                 lazy.layout.next(),
-                 desc='Switch window focus to other pane(s) of stack'
-                 ),
+             lazy.layout.next(),
+             desc='Switch window focus to other pane(s) of stack'
+             ),
          Key("M-C-<Return>",
-                 lazy.layout.toggle_split(),
-                 desc='Toggle between split and unsplit sides of stack'
-                 ),
-         Key("<F12>", lazy.group['scratchpad'].dropdown_toggle('term'), 
-            desc='Drop down terminal'
-            )
+             lazy.layout.toggle_split(),
+             desc='Toggle between split and unsplit sides of stack'
+             ),
+         Key("<F12>",
+             lazy.group['scratchpad'].dropdown_toggle('term'),
+             desc='Drop down terminal'
+             )
 ]
 
 group_names = ["Web", "Term", "Mus", "Editor", "Yt", "Misc"]
 groups = [Group(name) for name in group_names]
 
 for i, name in enumerate(group_names):
-    keys += [Key("M-" + str(i + 1), lazy.group[name].toscreen(), desc="Go to next group"), 
-            Key("M-S-" + str(i + 1), lazy.window.togroup(name), desc="Move window to next group")]
+    keys += [Key("M-" + str(i + 1), lazy.group[name].toscreen(), desc="Go to next group"),
+        Key("M-S-" + str(i + 1), lazy.window.togroup(name), desc="Move window to next group")]
 
 # Drag floating layouts
 mouse = [
@@ -165,8 +163,8 @@ layouts = [
     #  layout.Max(**layout_theme),
     #  layout.Matrix(**layout_theme),
     #  layout.Stack(stacks=2, **layout_theme),
-    layout.Bsp(**layout_theme),
     layout.MonadTall(**layout_theme),
+    layout.Bsp(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
     layout.TreeTab(
          font = "JetBrainsMono Nerd Font",
