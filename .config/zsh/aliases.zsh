@@ -69,9 +69,7 @@ alias ff='find . -type f -name'
 cco() { gcc -std=c99 -g -O2 -o $1 $1.c -Wall; }
 run() { cco $1 && ./$1 & fg; }
 
-# git aliases
+# Dotfiles aliase
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfgs='cfg status'
-alias cfga='cfg add'
-alias cfgc='cfg commit'
-alias cfgp='cfg push'
+# Git completion for dotfiles bare repo
+compdef cfg='git'
