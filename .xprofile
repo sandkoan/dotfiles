@@ -8,8 +8,8 @@ setxkbmap -option ctrl:nocaps
 xset r rate 350 40
 
 # monitors
-xrandr --output VGA-1 --mode 1920x1080
-xrandr --output VGA-2 --mode 2560x1440
+xrandr --output VGA-1 --mode 2560x1440
+xrandr --output VGA-2 --mode 1920x1080
 
 # background
 nitrogen --restore &
