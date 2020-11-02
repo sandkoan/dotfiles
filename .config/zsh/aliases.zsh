@@ -71,5 +71,3 @@ run() { cco $1 && ./$1 & fg; }
 
 # Dotfiles aliase
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-# Git completion for dotfiles bare repo
-compdef cfg='git'
