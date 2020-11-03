@@ -1,5 +1,3 @@
-# vim:set fdm=syntax
-
 setopt prompt_subst
 setopt transient_rprompt
 
