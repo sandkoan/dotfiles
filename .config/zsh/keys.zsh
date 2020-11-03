@@ -31,8 +31,8 @@ bindkey '^[[Z'    undo                                             # Shift+tab u
 
 # delete next word with ctrl+delete
 forward-kill-word() {
-zle forward-word
-zle backward-kill-word
+    zle forward-word
+    zle backward-kill-word
 }
 zle -N forward-kill-word
 bindkey '^[[3;5~' forward-kill-word                              
@@ -56,13 +56,13 @@ bindkey '^X^X' edit-command-line
 # Use ctrl-z to toggle background processes
 # don't need to type fg everytime
 fancy-ctrl-z () {
-if [[ $#BUFFER -eq 0 ]]; then
-    fg
-    zle redisplay
-else
-    zle push-input
-    zle clear-screen
-fi
+    if [[ $#BUFFER -eq 0 ]]; then
+        fg
+        zle redisplay
+    else
+        zle push-input
+        zle clear-screen
+    fi
 }
 
 zle -N fancy-ctrl-z
@@ -91,5 +91,3 @@ if command -v fzf &> /dev/null
 then
     source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
 fi
-
-
