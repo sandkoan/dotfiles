@@ -87,7 +87,7 @@ unambigandmenu() {
 zle -N unambigandmenu
 bindkey "^I" unambigandmenu
 
-if command -v fzf &> /dev/null
+if [ -d "/usr/share/fzf/" ]
 then
     source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
 fi
