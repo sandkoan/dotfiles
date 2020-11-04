@@ -68,7 +68,7 @@ in_ranger() {
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
-$(ssh_info)%{$fg[blue]%}%~%u %F{242}%(1j.%j.)%f$(git_info)%F{240}%$(in_ranger)%f
+$(ssh_info)%{$fg[blue]%}%~%u %F{242}%(1j.%j.)%f$(git_info)%F{240}$(in_ranger)%f
 %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
 
 

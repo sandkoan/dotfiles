@@ -17,8 +17,8 @@
 [core]
 	; pager = less --mouse
 	pager = nvim -R
-; [color]
-	; pager = no
+[color]
+	pager = no
 [mergetool "nvimdiff4"]
 	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
