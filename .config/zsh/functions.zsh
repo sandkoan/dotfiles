@@ -22,10 +22,12 @@ ex () {
 }
 
 # fff - cd on exit
-f() {
-    fff "$@"
-    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
-}
+if command -v fff &> /dev/null; then
+  f() {
+      fff "$@"
+      cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+  }
+fi
 
 
 function countdown() {
@@ -38,45 +40,56 @@ function countdown() {
 
 # After 220 seconds, run screen saver (either pipes or cmatrix)
 TMOUT=300
+if command -v pipes.sh &> /dev/null; then
+  PIPES() {
+      x=$(shuf -n 1 -e 0 ${4-8})
+      pipes.sh -t $x
+  }
+fi
 
-PIPES() {
-    x=$(shuf -n 1 -e 0 ${4-8})
-    pipes.sh -t $x
-}
+if command -v unimatrix &> /dev/null; then
+  MATRIX() {
+      y=$(shuf -n 1 -e 0 1)
+      if [ $y -eq 0 ]
+      then 
+          unimatrix -a -f -s 96 -c blue
+      else 
+          unimatrix -f -s 96
+      fi
+  }
+fi
 
-MATRIX() {
-    y=$(shuf -n 1 -e 0 1)
-    if [ $y -eq 0 ]
-    then 
-        unimatrix -a -f -s 96 -c blue
-    else 
-        unimatrix -f -s 96
-    fi
-}
-
-TRAPALRM() {
-    n=$(shuf -n 1 -e 1 2 3 4 5 6 7 8 9 10)
-    if [ $n -lt 7 ]
-    then
-        PIPES
-    else
-        MATRIX
-    fi
-}
+if typeset -f PIPES &> /dev/null && typeset -f MATRIX &> /dev/null; then
+  TRAPALRM() {
+      n=$(shuf -n 1 -e 1 2 3 4 5 6 7 8 9 10)
+      if [ $n -lt 7 ]
+      then
+          PIPES
+      else
+          MATRIX
+      fi
+  }
+fi
 
 startcolors() {
     r=$(shuf -n 1 -e 0 1 2 3 4 5)
     if [ $r -lt 4 ]
     then
-        colorscript random
-    else 
-        fortune | cowsay | lolcat -t
+      if command -v colorscript &> /dev/null; then
+          colorscript random
+      fi
+    else
+      if command -v fortune &> /dev/null && command -v cowsay &> /dev/null && command -v lolcat &> /dev/null; then
+          fortune | cowsay | lolcat -t
+      fi
     fi
 }
 
-wttr() {
-    curl wttr.in
-}
+if command -v curl &> /dev/null
+  wttr() {
+      curl wttr.in
+  }
+fi
 
 startcolors
 
