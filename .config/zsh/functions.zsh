@@ -85,7 +85,7 @@ startcolors() {
     fi
 }
 
-if command -v curl &> /dev/null
+if command -v curl &> /dev/null; then
   wttr() {
       curl wttr.in
   }
