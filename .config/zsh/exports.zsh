@@ -18,6 +18,8 @@ fi
 
 [ -d "$HOME/bin" ] && PATH=$PATH:$HOME/bin
 
+[ -d "$HOME/.local/bin" ] && PATH=$PATH:$HOME/.local/bin
+
 [ -d ~/bin/shell-color-scripts ] && PATH=$PATH:$HOME/bin/shell-color-scripts:$HOME/bin/shell-color-scripts/colorscripts
 
 [ -d "$HOME/.emacs.d/bin/" ] && PATH=$PATH:~/.emacs.d/bin
