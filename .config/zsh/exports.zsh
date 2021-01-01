@@ -2,6 +2,9 @@
 
 export EDITOR='nvim'
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$(go env GOPATH)/bin
+
 # Use syntax highlighting
 [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] &&
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -16,11 +19,13 @@ if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
     export PKGFILE_PROMPT_INSTALL_MISSING=1
 fi
 
+
+
 [ -d "$HOME/bin" ] && PATH=$PATH:$HOME/bin
 
 [ -d "$HOME/.local/bin" ] && PATH=$PATH:$HOME/.local/bin
 
-[ -d ~/bin/shell-color-scripts ] && PATH=$PATH:$HOME/bin/shell-color-scripts:$HOME/bin/shell-color-scripts/colorscripts
+[ -d "$HOME/bin/shell-color-scripts" ] && PATH=$PATH:$HOME/bin/shell-color-scripts:$HOME/bin/shell-color-scripts/colorscripts
 
 [ -d "$HOME/.emacs.d/bin/" ] && PATH=$PATH:~/.emacs.d/bin
 
