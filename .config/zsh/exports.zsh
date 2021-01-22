@@ -1,9 +1,13 @@
 # exports
 
-export EDITOR='nvim'
+if command -v nvim &> /dev/null; then
+    export EDITOR='nvim'
+fi
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$(go env GOPATH)/bin
+if command -v go &> /dev/null; then
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$(go env GOPATH)/bin
+fi
 
 # Use syntax highlighting
 [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] &&
