@@ -1,34 +1,21 @@
 #!/usr/bin/env bash
 # Change to the diary directory
-# Set your DIARY_DIR in bashrc. else it goes into home folder.
-cd $DIARY_DIR;
+# Set your DIARY_DIR in bashrc. else it goes into home ~/Documents/diary.
+
+DIARY_DIR="${DIARY_DIR:=~/Documents/diary}"
+EDITOR="${EDITOR:-vim}"
+
+mkdir -p "$DIARY_DIR" && cd "$DIARY_DIR"
 
 # Get current date
-year=$(date +%Y);
-month=$(date +%m);
+local year=$(date +%Y)
+local month=$(date +%m)
 
-# Create folders if they don't exist.
-if [[ ! -d $year ]]; then
-    mkdir $year;
-    cd $year;
-else
-    cd $year;
-fi
-
-if [[ ! -d $month ]]; then
-    mkdir $month;
-    cd $month;
-else
-    cd $month;
-fi
+mkdir -p "$year"/"$month" && cd "$year"/"$month"
 
 # Create diary files in the appropriate places and opens them.
-# VIM > EMACS.
-datename=$(date +%F)
-if [[ ! -f "$datename.md" ]]; then
-    touch "$datename.md";
-    echo "## $datename, $(date +%A)" >> "$datename.md";
-    vim "$datename.md";
-else
-    vim "$datename.md";
-fi
+local datename=$(date +%F)
+[[ ! -f "$datename.md" ]] && echo "# $datename, $(date +%A)" >> "$datename.md"
+echo "## $(date +%H:%M:%S)" >> "$datename.md"
+
+"$EDITOR" "$datename.md"
