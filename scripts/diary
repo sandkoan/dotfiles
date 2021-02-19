@@ -2,19 +2,22 @@
 # Change to the diary directory
 # Set your DIARY_DIR in bashrc. else it goes into home ~/Documents/diary.
 
-DIARY_DIR="${DIARY_DIR:=~/Documents/diary}"
+cd "$HOME"
+
+[[ -z "$DIARY_DIR" ]] && DIARY_DIR="$HOME/Documents/diary"
+
 EDITOR="${EDITOR:-vim}"
 
 mkdir -p "$DIARY_DIR" && cd "$DIARY_DIR"
 
 # Get current date
-local year=$(date +%Y)
-local month=$(date +%m)
+year=$(date +%Y)
+month=$(date +%m)
 
 mkdir -p "$year"/"$month" && cd "$year"/"$month"
 
 # Create diary files in the appropriate places and opens them.
-local datename=$(date +%F)
+datename=$(date +%F)
 [[ ! -f "$datename.md" ]] && echo "# $datename, $(date +%A)" >> "$datename.md"
 echo "## $(date +%H:%M:%S)" >> "$datename.md"
 
